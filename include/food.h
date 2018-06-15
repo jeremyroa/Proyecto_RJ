@@ -9,6 +9,7 @@ class Food
 
       std::string name;
       float price;
+      std::string image;
 
     public:
 
@@ -18,9 +19,11 @@ class Food
 
       std::string get_name();
       float get_price();
+      std::string get_image();
 
       int set_name(std::string);
       int set_price(float);
+      int set_image(std::string);
 
       bool operator==(const Food);
 };

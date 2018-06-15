@@ -15,6 +15,7 @@ Restaurant::Restaurant()
     this->card = TDC();
     this->menu = Menu();
     this->orders.clear();
+    this->image = nullptr;
 }
 
 Restaurant::Restaurant(const Restaurant &Rest)
@@ -31,7 +32,8 @@ Restaurant::Restaurant(const Restaurant &Rest)
     this->password = Rest.password;
     this->card = Rest.card;
     this->menu = Rest.menu;
-    this->orders = Rest.orders;   
+    this->orders = Rest.orders; 
+    this->image = Rest.image;  
 }
 
 
@@ -99,6 +101,12 @@ std::vector <Order> Restaurant::get_orders()
 {
     return this->orders;
 }
+
+std::string Restaurant::get_image()
+{
+    return this->image;
+}
+
 
 
 int Restaurant::set_name(std::string nam)
@@ -230,5 +238,11 @@ int Restaurant::set_password(std::string x)
         {
                 return 5;//throw std::domain_error("the password must be over 8 character");
         }
+}
+
+int Restaurant::set_image(std::string i)
+{
+    this->image = i;
+    return 0;
 }
 

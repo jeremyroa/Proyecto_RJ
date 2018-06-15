@@ -27,6 +27,7 @@ class Restaurant
       rest type_rest;
       std::string email;
       std::string password;
+      std::string image;
     
     public:
 
@@ -51,6 +52,7 @@ class Restaurant
       TDC get_tdc();
       Menu get_menu();
       std::vector <Order> get_orders();
+      std::string get_image();
 
       int set_name(std::string);
       int set_rif(std::string);
@@ -63,6 +65,7 @@ class Restaurant
       int set_type_rest(rest);
       int set_email(std::string);
       int set_password(std::string);
+      int set_image(std::string);
 
 
 };
