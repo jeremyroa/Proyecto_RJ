@@ -5,7 +5,7 @@ Food_user::Food_user() : Cuser()
     this->state = "NONE";
     this->city = "NONE";
     this->email = "fake@gmail.com";
-    this->fav;
+    this->fav.empty();
 }
 Food_user::Food_user(const Food_user &cop) : Cuser()
 {

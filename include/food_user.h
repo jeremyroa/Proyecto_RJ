@@ -5,6 +5,8 @@
 #include <iostream>
 #include <enumerados.h>
 #include <vector>
+#include <fstream>
+#include <iomanip>
 
 class Food_user : public Cuser{
     private:

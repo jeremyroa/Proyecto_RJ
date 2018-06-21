@@ -15,7 +15,7 @@ Restaurant::Restaurant()
     this->card = TDC();
     this->menu = Menu();
     this->orders.clear();
-    this->image = nullptr;
+    this->image.clear();
 }
 
 Restaurant::Restaurant(const Restaurant &Rest)

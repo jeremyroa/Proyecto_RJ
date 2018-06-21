@@ -5,7 +5,7 @@ CFLAGS = -g -c
 
 all: main.exe
 
-main.exe: main.o user.o food.o menu.o food_user.o order.o credit_card.o restaurant.o
+main.exe: main.o user.o food.o menu.o food_user.o order.o credit_card.o restaurant.o system.o
 	$(CXX) $(^) -o $(@)
 
 main.o: main.cpp
@@ -30,6 +30,9 @@ credit_card.o: $(SOURCES)credit_card.cpp
 	$(CXX) $(^) $(CFLAGS) $(INCLUDE)
 
 restaurant.o: $(SOURCES)restaurant.cpp
+	$(CXX) $(^) $(CFLAGS) $(INCLUDE)
+
+system.o: $(SOURCES)system.cpp
 	$(CXX) $(^) $(CFLAGS) $(INCLUDE)
 
 clean:
