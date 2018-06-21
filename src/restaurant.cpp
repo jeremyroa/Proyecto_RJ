@@ -11,7 +11,7 @@ Restaurant::Restaurant()
     this->description = "Fake Description";
     this->type_rest = chinese;
     this->email = "fake_email@gmail.com";
-    this->password = "";
+    this->password = "NULL";
     this->card = TDC();
     this->menu = Menu();
     this->orders.clear();

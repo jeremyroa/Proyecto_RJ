@@ -4,7 +4,7 @@
       {
           this->name = "Default food";
           this->price = 0;
-          this->image = nullptr;
+          this->image = "";
       }
       Food::Food(const Food &f)
       {

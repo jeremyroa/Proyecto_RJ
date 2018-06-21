@@ -302,6 +302,10 @@ int System::login_user(std::string u, std::string p)
     return 1;
 }
 
+
+
+
+////// Metodos de restaurant
 int System::add_rest(Restaurant new_r)
 {
     int mov = 111;
@@ -318,10 +322,10 @@ int System::add_rest(Restaurant new_r)
         arch.open("../database/restaurants.txt");
         arch.seekp((hash - 1)*mov);
         arch << std::left << std::setw(2) << "0";
-        arch << std::left << std::setw(10) << new_r.get_rif() << " ";
-        arch << std::left << std::setw(34) << new_r.get_name() << " ";
-        arch << std::left << std::setw(50) << new_r.get_email() << " ";
-        arch << std::left << std::setw(8) << new_r.get_password() << " ";
+        arch << std::left << std::setw(10) << new_r.get_rif() << ":";
+        arch << std::left << std::setw(33) << new_r.get_name() << ":";
+        arch << std::left << std::setw(50) << new_r.get_email() << ":";
+        arch << std::left << std::setw(8) << new_r.get_password() << ":";
         arch << std::left << std::setw(3) << static_cast<int>(new_r.get_type_rest())<< "\n";
 
         arch.close();
@@ -342,7 +346,7 @@ int System::add_rest(Restaurant new_r)
 
         we << new_r.get_image() << "\n";
         
-        we << new_r.get_state() << ":" << new_r.get_state()
+        we << new_r.get_state() << ":" << new_r.get_city()
         << ":" << new_r.get_address() << "\n";
 
         for(auto i: new_r.get_tlf())
@@ -383,4 +387,51 @@ int System::add_rest(Restaurant new_r)
 
         we.close();     
     }else return -1;
+}
+
+int System::login_rest(std::string rif, std::string pas)
+{
+    int mov = 111;
+    int hash;
+
+    std::hash<std::string> hash_rest;
+    hash = hash_rest(rif) % 10000;
+    std::string man,r,p,n,bar,em,t;
+    std::ifstream arch;
+    arch.open("../database/restaurants.txt");
+
+    arch.seekg((hash - 1) * mov,std::ios::beg);
+    if(arch.peek() == '0')
+    {
+        std::getline(arch,man,'\n');
+        man = man.substr(2);
+        std::stringstream ar(man);
+        std::getline(ar,r,':');
+        std::getline(ar,n,' ');
+        std::getline(ar,bar,':');
+        std::getline(ar,em, ' ');
+        std::getline(ar,bar, ':');
+        std::getline(ar,p, ' ');
+        std::getline(ar, bar, ':');
+        std::getline(ar,t, ' ');
+        if(r == rif and p == pas)
+        {
+            this->r.set_rif(r);
+            this->r.set_password(p);
+            this->r.set_name(n);
+            this->r.set_email(em);
+            int a = atoi(t.c_str());
+            this->r.set_type_rest(static_cast<rest>(a));
+            
+        }
+        else
+        {
+            return -2;
+        }
+    }
+    else
+    {
+        arch.close();
+        return -1;
+    }
 }
