@@ -319,7 +319,7 @@ int System::add_rest(Restaurant new_r)
         arch.seekp((hash - 1)*mov);
         arch << std::left << std::setw(2) << "0";
         arch << std::left << std::setw(10) << new_r.get_rif() << " ";
-        arch << std::left << std::setw(34) << new_r.get_name() << " ";
+        arch << std::left << std::setw(33) << new_r.get_name() << " ";
         arch << std::left << std::setw(50) << new_r.get_email() << " ";
         arch << std::left << std::setw(8) << new_r.get_password() << " ";
         arch << std::left << std::setw(3) << static_cast<int>(new_r.get_type_rest())<< "\n";

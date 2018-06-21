@@ -12,7 +12,7 @@ int main(){
     c.set_name("Arroz chino");
     c.set_price(20.89);
 
-    */std::pair<Food,std::string> b;/*
+    *//*
 
     b.second = "Plato fuerte";
     b.first = c;
@@ -99,7 +99,7 @@ int main(){
 
     r.set_state("Merida");
 
-    //std::pair<Food, std::string> b;
+    std::pair<Food, std::string> b;
 
     b.second = "Plato Fuerte";
 
@@ -112,7 +112,7 @@ int main(){
     test.set_image("44784814..//");
 
     b.first = test;
-    //b.second = "Plato Fuerte";
+    b.second = "Plato Fuerte";
 
 
     r.menu.set_catalog_item(b);
