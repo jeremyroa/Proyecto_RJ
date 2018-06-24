@@ -7,14 +7,21 @@ Interface_rest::Interface_rest(QWidget *parent) :
   ui(new Ui::Interface_rest)
 {
   ui->setupUi(this);
-  qDebug() << QString::fromStdString(this->sys.r.get_image());
-  QPixmap a(QString::fromStdString(this->sys.r.get_image()));
-  this->ui->label_2->setPixmap(a);
+
 }
 
 Interface_rest::~Interface_rest()
 {
   delete ui;
+}
+
+void Interface_rest::set_image(std::string img)
+{
+  qDebug() << QString::fromStdString(img);
+  QPixmap a(QString::fromStdString(img));
+  this->ui->label_2->setPixmap(a);
+  this->ui->label->setText(QString::fromStdString(this->sys.r.get_name()));
+
 }
 
 void Interface_rest::on_pushButton_clicked()

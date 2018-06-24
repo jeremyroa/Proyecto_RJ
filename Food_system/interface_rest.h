@@ -16,6 +16,7 @@ public:
   explicit Interface_rest(QWidget *parent = 0);
   ~Interface_rest();
   System sys;
+  void set_image(std::string);
 
 private slots:
   void on_pushButton_clicked();

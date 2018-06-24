@@ -62,6 +62,7 @@ public:
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setMinimumSize(QSize(60, 60));
         label_2->setMaximumSize(QSize(60, 60));
+        label_2->setScaledContents(true);
 
         horizontalLayout->addWidget(label_2);
 

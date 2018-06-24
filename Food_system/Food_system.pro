@@ -30,7 +30,10 @@ SOURCES += main.cpp\
     register_menu.cpp \
     add_tlf.cpp \
     interface_cl.cpp \
-    interface_rest.cpp
+    interface_rest.cpp \
+    list_user_rest.cpp \
+    user_menu.cpp \
+    confirm_menu_user.cpp
 
 HEADERS  += login.h \
     credit_card.h \
@@ -48,7 +51,10 @@ HEADERS  += login.h \
     register_menu.h \
     add_tlf.h \
     interface_cl.h \
-    interface_rest.h
+    interface_rest.h \
+    list_user_rest.h \
+    user_menu.h \
+    confirm_menu_user.h
 
 FORMS    += login.ui \
     register_client.ui \
@@ -57,4 +63,7 @@ FORMS    += login.ui \
     register_menu.ui \
     add_tlf.ui \
     interface_cl.ui \
-    interface_rest.ui
+    interface_rest.ui \
+    list_user_rest.ui \
+    user_menu.ui \
+    confirm_menu_user.ui

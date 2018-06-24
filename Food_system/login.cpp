@@ -58,8 +58,10 @@ void Login::on_pushButton_clicked()
                  QMessageBox::information(this,"Restaurante Accesido","Se ha encontrado el restaurante");
                  this->int_rest = new Interface_rest;
                  this->int_rest->sys = this->sys;
+                 this->int_rest->set_image(this->sys.r.get_image());
                  this->int_rest->show();
                  hide();
+
                }else QMessageBox::warning(this,"Error Login Rest","Problemas al buscar restaurant");
 
                qDebug() << this->sys.login_rest(id_s,password_s) << "---" ;
