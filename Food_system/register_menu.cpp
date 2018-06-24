@@ -77,7 +77,9 @@ void Register_Menu::on_label_5_prueba_linkActivated(const QString &link)
 }
 
 void Register_Menu::on_pushButton_2_clicked()
-{
-    QMessageBox::information(this,"Creacion","Se Registro con Exito");
+{    
+    qDebug() << QString::fromStdString(this->rest_menu.get_password()) << "---" <<QString::fromStdString(this->rest_menu.get_rif());
+    if(this->sys.add_rest(this->rest_menu) == 0)
+      QMessageBox::information(this,"Creacion","Se Registro con Exito");
     this->close();
 }

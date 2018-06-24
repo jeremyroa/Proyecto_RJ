@@ -143,6 +143,7 @@ public:
 
         doubleSpinBox = new QDoubleSpinBox(Register_Menu);
         doubleSpinBox->setObjectName(QStringLiteral("doubleSpinBox"));
+        doubleSpinBox->setMaximum(1e+08);
 
         verticalLayout_2->addWidget(doubleSpinBox);
 

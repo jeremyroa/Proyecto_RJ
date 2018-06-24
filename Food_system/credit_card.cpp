@@ -94,7 +94,7 @@ int TDC::set_name(std::string nam)
 
 int TDC::set_expired_date(date exp)
 {
-    if(exp.month >= 1 and exp.month <= 12 and exp.year >= 2018)
+    if(exp.month >= 1 and exp.month <= 12 and exp.year >= 18)
     {
         this->expired = exp;
         return 0;

@@ -29,7 +29,7 @@ QT_BEGIN_NAMESPACE
 class Ui_Register_rest_tdc
 {
 public:
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_5;
     QSpacerItem *horizontalSpacer_2;
@@ -56,18 +56,16 @@ public:
     QLineEdit *lineEdit_7;
     QHBoxLayout *horizontalLayout_4;
     QPushButton *pushButton;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *pushButton_2;
 
     void setupUi(QWidget *Register_rest_tdc)
     {
         if (Register_rest_tdc->objectName().isEmpty())
             Register_rest_tdc->setObjectName(QStringLiteral("Register_rest_tdc"));
         Register_rest_tdc->resize(223, 296);
-        widget = new QWidget(Register_rest_tdc);
-        widget->setObjectName(QStringLiteral("widget"));
-        widget->setGeometry(QRect(10, 10, 204, 273));
-        verticalLayout_3 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(Register_rest_tdc);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 10, 204, 273));
+        verticalLayout_3 = new QVBoxLayout(layoutWidget);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_5 = new QHBoxLayout();
@@ -76,7 +74,7 @@ public:
 
         horizontalLayout_5->addItem(horizontalSpacer_2);
 
-        label_6 = new QLabel(widget);
+        label_6 = new QLabel(layoutWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         horizontalLayout_5->addWidget(label_6);
@@ -92,18 +90,18 @@ public:
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QStringLiteral("label"));
 
         verticalLayout_2->addWidget(label);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_2);
 
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setAlignment(Qt::AlignCenter);
 
@@ -114,19 +112,19 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setCursorMoveStyle(Qt::LogicalMoveStyle);
         lineEdit->setClearButtonEnabled(true);
 
         verticalLayout->addWidget(lineEdit);
 
-        comboBox = new QComboBox(widget);
+        comboBox = new QComboBox(layoutWidget);
         comboBox->setObjectName(QStringLiteral("comboBox"));
 
         verticalLayout->addWidget(comboBox);
 
-        lineEdit_3 = new QLineEdit(widget);
+        lineEdit_3 = new QLineEdit(layoutWidget);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
         lineEdit_3->setCursorMoveStyle(Qt::LogicalMoveStyle);
         lineEdit_3->setClearButtonEnabled(true);
@@ -141,14 +139,14 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        spinBox = new QSpinBox(widget);
+        spinBox = new QSpinBox(layoutWidget);
         spinBox->setObjectName(QStringLiteral("spinBox"));
         spinBox->setMinimum(1);
         spinBox->setMaximum(12);
 
         horizontalLayout_2->addWidget(spinBox);
 
-        spinBox_2 = new QSpinBox(widget);
+        spinBox_2 = new QSpinBox(layoutWidget);
         spinBox_2->setObjectName(QStringLiteral("spinBox_2"));
         spinBox_2->setMinimum(18);
         spinBox_2->setMaximum(32);
@@ -162,13 +160,13 @@ public:
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setAlignment(Qt::AlignCenter);
 
         verticalLayout_5->addWidget(label_4);
 
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(layoutWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
         label_5->setAlignment(Qt::AlignCenter);
 
@@ -179,14 +177,14 @@ public:
 
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        lineEdit_6 = new QLineEdit(widget);
+        lineEdit_6 = new QLineEdit(layoutWidget);
         lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
         lineEdit_6->setCursorMoveStyle(Qt::LogicalMoveStyle);
         lineEdit_6->setClearButtonEnabled(true);
 
         verticalLayout_4->addWidget(lineEdit_6);
 
-        lineEdit_7 = new QLineEdit(widget);
+        lineEdit_7 = new QLineEdit(layoutWidget);
         lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
         lineEdit_7->setCursorMoveStyle(Qt::LogicalMoveStyle);
         lineEdit_7->setClearButtonEnabled(true);
@@ -201,19 +199,10 @@ public:
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        pushButton = new QPushButton(widget);
+        pushButton = new QPushButton(layoutWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
 
         horizontalLayout_4->addWidget(pushButton);
-
-        horizontalSpacer = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer);
-
-        pushButton_2 = new QPushButton(widget);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        horizontalLayout_4->addWidget(pushButton_2);
 
 
         verticalLayout_3->addLayout(horizontalLayout_4);
@@ -252,7 +241,6 @@ public:
         lineEdit_7->setText(QString());
         lineEdit_7->setPlaceholderText(QString());
         pushButton->setText(QApplication::translate("Register_rest_tdc", "Registrar", 0));
-        pushButton_2->setText(QApplication::translate("Register_rest_tdc", "Atras", 0));
     } // retranslateUi
 
 };

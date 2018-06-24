@@ -397,6 +397,8 @@ int System::add_rest(Restaurant new_r)
         we.close();
         we.open(ord);
         we.close();
+
+        return 0;
     }else return -1;
 }
 
