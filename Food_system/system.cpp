@@ -444,9 +444,9 @@ int System::login_rest(std::string rif, std::string pas)
     std::string man,r,p,n,bar,em,t;
     std::ifstream arch;
     arch.open("../database/restaurants.txt");
-
     arch.seekg((hash - 1) * mov,std::ios::beg);
-    
+
+
     
     if(arch.peek() == '0')
     {
@@ -458,13 +458,14 @@ int System::login_rest(std::string rif, std::string pas)
         std::getline(ar,bar,':');
         std::getline(ar,em, ' ');
         std::getline(ar,bar, ':');
-        std::getline(ar,p, ' ');
-        std::getline(ar, bar, ':');
+        std::getline(ar,p, ':');
         std::getline(ar,t, ' ');
-        
+        qDebug() << QString::fromStdString(r) << QString::fromStdString(t);
+
 
         if(r == rif and p == pas)
         {
+            qDebug() << arch.peek() << arch.tellg();
             this->r.set_rif(r);
             this->r.set_password(p);
             this->r.set_name(n);

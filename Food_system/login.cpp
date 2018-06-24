@@ -1,6 +1,7 @@
 #include "login.h"
 #include "ui_login.h"
 
+
 Login::Login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Login)
@@ -51,9 +52,30 @@ void Login::on_pushButton_clicked()
     if(!(id_s == "") and (!(password_s == "")))
 
             if(id_s[0] == 'J')
-                this->sys.login_rest(id_s,password_s);
+            {
+               if(this->sys.login_rest(id_s,password_s) == 0)
+               {
+                 QMessageBox::information(this,"Restaurante Accesido","Se ha encontrado el restaurante");
+                 this->int_rest = new Interface_rest;
+                 this->int_rest->sys = this->sys;
+                 this->int_rest->show();
+                 hide();
+               }else QMessageBox::warning(this,"Error Login Rest","Problemas al buscar restaurant");
+
+               qDebug() << this->sys.login_rest(id_s,password_s) << "---" ;
+            }
             else
-                this->sys.login_user(id_s,password_s);
+            {
+                if(this->sys.login_user(id_s,password_s) == 0)
+                {
+                    QMessageBox::information(this,"Cliente Accesido","Se ha encontrado el cliente");
+                    this->int_cl = new Interface_cl;
+                    this->int_cl->sys = this->sys;
+                    this->int_cl->show();
+                    hide();
+                }
+
+            }
 
     else
 

@@ -8,6 +8,8 @@
 #include "register_client.h"
 #include "register_restaurant.h"
 #include "qdebug.h"
+#include "interface_cl.h"
+#include "interface_rest.h"
 
 
 namespace Ui {
@@ -22,6 +24,8 @@ public:
     explicit Login(QWidget *parent = 0);
     ~Login();
     System sys;
+    Interface_cl *int_cl;
+    Interface_rest *int_rest;
 
 
 private slots:

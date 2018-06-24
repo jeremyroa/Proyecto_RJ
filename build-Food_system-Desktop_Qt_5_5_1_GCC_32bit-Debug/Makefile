@@ -62,12 +62,16 @@ SOURCES       = ../Food_system/main.cpp \
 		../Food_system/register_restaurant.cpp \
 		../Food_system/register_rest_tdc.cpp \
 		../Food_system/register_menu.cpp \
-		../Food_system/add_tlf.cpp moc_login.cpp \
+		../Food_system/add_tlf.cpp \
+		../Food_system/interface_cl.cpp \
+		../Food_system/interface_rest.cpp moc_login.cpp \
 		moc_register_client.cpp \
 		moc_register_restaurant.cpp \
 		moc_register_rest_tdc.cpp \
 		moc_register_menu.cpp \
-		moc_add_tlf.cpp
+		moc_add_tlf.cpp \
+		moc_interface_cl.cpp \
+		moc_interface_rest.cpp
 OBJECTS       = main.o \
 		login.o \
 		credit_card.o \
@@ -83,12 +87,16 @@ OBJECTS       = main.o \
 		register_rest_tdc.o \
 		register_menu.o \
 		add_tlf.o \
+		interface_cl.o \
+		interface_rest.o \
 		moc_login.o \
 		moc_register_client.o \
 		moc_register_restaurant.o \
 		moc_register_rest_tdc.o \
 		moc_register_menu.o \
-		moc_add_tlf.o
+		moc_add_tlf.o \
+		moc_interface_cl.o \
+		moc_interface_rest.o
 DIST          = /opt/Qt/5.5/gcc/mkspecs/features/spec_pre.prf \
 		/opt/Qt/5.5/gcc/mkspecs/common/unix.conf \
 		/opt/Qt/5.5/gcc/mkspecs/common/linux.conf \
@@ -237,7 +245,9 @@ DIST          = /opt/Qt/5.5/gcc/mkspecs/features/spec_pre.prf \
 		../Food_system/register_restaurant.h \
 		../Food_system/register_rest_tdc.h \
 		../Food_system/register_menu.h \
-		../Food_system/add_tlf.h ../Food_system/main.cpp \
+		../Food_system/add_tlf.h \
+		../Food_system/interface_cl.h \
+		../Food_system/interface_rest.h ../Food_system/main.cpp \
 		../Food_system/login.cpp \
 		../Food_system/credit_card.cpp \
 		../Food_system/food.cpp \
@@ -251,7 +261,9 @@ DIST          = /opt/Qt/5.5/gcc/mkspecs/features/spec_pre.prf \
 		../Food_system/register_restaurant.cpp \
 		../Food_system/register_rest_tdc.cpp \
 		../Food_system/register_menu.cpp \
-		../Food_system/add_tlf.cpp
+		../Food_system/add_tlf.cpp \
+		../Food_system/interface_cl.cpp \
+		../Food_system/interface_rest.cpp
 QMAKE_TARGET  = Food_system
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = Food_system
@@ -279,7 +291,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_login.h ui_register_client.h ui_register_restaurant.h ui_register_rest_tdc.h ui_register_menu.h ui_add_tlf.h $(OBJECTS)  
+$(TARGET): ui_login.h ui_register_client.h ui_register_restaurant.h ui_register_rest_tdc.h ui_register_menu.h ui_add_tlf.h ui_interface_cl.h ui_interface_rest.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Food_system/Food_system.pro /opt/Qt/5.5/gcc/mkspecs/linux-g++-32/qmake.conf /opt/Qt/5.5/gcc/mkspecs/features/spec_pre.prf \
@@ -573,9 +585,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Food_system/login.h ../Food_system/credit_card.h ../Food_system/enumerados.h ../Food_system/food.h ../Food_system/food_user.h ../Food_system/menu.h ../Food_system/order.h ../Food_system/restaurant.h ../Food_system/system.h ../Food_system/user.h ../Food_system/register_client.h ../Food_system/register_restaurant.h ../Food_system/register_rest_tdc.h ../Food_system/register_menu.h ../Food_system/add_tlf.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Food_system/main.cpp ../Food_system/login.cpp ../Food_system/credit_card.cpp ../Food_system/food.cpp ../Food_system/food_user.cpp ../Food_system/menu.cpp ../Food_system/order.cpp ../Food_system/restaurant.cpp ../Food_system/system.cpp ../Food_system/user.cpp ../Food_system/register_client.cpp ../Food_system/register_restaurant.cpp ../Food_system/register_rest_tdc.cpp ../Food_system/register_menu.cpp ../Food_system/add_tlf.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Food_system/login.ui ../Food_system/register_client.ui ../Food_system/register_restaurant.ui ../Food_system/register_rest_tdc.ui ../Food_system/register_menu.ui ../Food_system/add_tlf.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Food_system/login.h ../Food_system/credit_card.h ../Food_system/enumerados.h ../Food_system/food.h ../Food_system/food_user.h ../Food_system/menu.h ../Food_system/order.h ../Food_system/restaurant.h ../Food_system/system.h ../Food_system/user.h ../Food_system/register_client.h ../Food_system/register_restaurant.h ../Food_system/register_rest_tdc.h ../Food_system/register_menu.h ../Food_system/add_tlf.h ../Food_system/interface_cl.h ../Food_system/interface_rest.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Food_system/main.cpp ../Food_system/login.cpp ../Food_system/credit_card.cpp ../Food_system/food.cpp ../Food_system/food_user.cpp ../Food_system/menu.cpp ../Food_system/order.cpp ../Food_system/restaurant.cpp ../Food_system/system.cpp ../Food_system/user.cpp ../Food_system/register_client.cpp ../Food_system/register_restaurant.cpp ../Food_system/register_rest_tdc.cpp ../Food_system/register_menu.cpp ../Food_system/add_tlf.cpp ../Food_system/interface_cl.cpp ../Food_system/interface_rest.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Food_system/login.ui ../Food_system/register_client.ui ../Food_system/register_restaurant.ui ../Food_system/register_rest_tdc.ui ../Food_system/register_menu.ui ../Food_system/add_tlf.ui ../Food_system/interface_cl.ui ../Food_system/interface_rest.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -598,9 +610,9 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_login.cpp moc_register_client.cpp moc_register_restaurant.cpp moc_register_rest_tdc.cpp moc_register_menu.cpp moc_add_tlf.cpp
+compiler_moc_header_make_all: moc_login.cpp moc_register_client.cpp moc_register_restaurant.cpp moc_register_rest_tdc.cpp moc_register_menu.cpp moc_add_tlf.cpp moc_interface_cl.cpp moc_interface_rest.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_login.cpp moc_register_client.cpp moc_register_restaurant.cpp moc_register_rest_tdc.cpp moc_register_menu.cpp moc_add_tlf.cpp
+	-$(DEL_FILE) moc_login.cpp moc_register_client.cpp moc_register_restaurant.cpp moc_register_rest_tdc.cpp moc_register_menu.cpp moc_add_tlf.cpp moc_interface_cl.cpp moc_interface_rest.cpp
 moc_login.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		/opt/Qt/5.5/gcc/include/QtWidgets/qwidget.h \
 		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs.h \
@@ -726,6 +738,9 @@ moc_login.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		../Food_system/interface_cl.h \
+		../Food_system/interface_rest.h \
 		../Food_system/login.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/login.h -o moc_login.cpp
 
@@ -854,6 +869,9 @@ moc_register_client.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		../Food_system/interface_cl.h \
+		../Food_system/interface_rest.h \
 		../Food_system/register_client.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/register_client.h -o moc_register_client.cpp
 
@@ -978,6 +996,8 @@ moc_register_restaurant.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
 		../Food_system/register_restaurant.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/register_restaurant.h -o moc_register_restaurant.cpp
 
@@ -1333,14 +1353,245 @@ moc_add_tlf.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		../Food_system/credit_card.h \
 		../Food_system/user.h \
 		../Food_system/menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
 		../Food_system/add_tlf.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/add_tlf.h -o moc_add_tlf.cpp
 
+moc_interface_cl.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobal.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qconfig.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfeatures.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlogging.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qflags.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmutex.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnumeric.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnamespace.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstring.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qchar.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrefcount.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qarraydata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiterator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearraylist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregexp.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmetatype.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qisenum.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmargins.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpaintdevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrect.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsize.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpoint.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpalette.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcolor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qrgb.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qbrush.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpair.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvector.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qmatrix.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpolygon.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qregion.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdatastream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiodevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qline.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtransform.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpainterpath.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qimage.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixelformat.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qshareddata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qhash.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfont.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontmetrics.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcursor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qkeysequence.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvariant.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdebug.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtextstream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlocale.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qset.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurlquery.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfile.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfiledevice.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvector2d.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtouchdevice.h \
+		../Food_system/system.h \
+		../Food_system/restaurant.h \
+		../Food_system/food.h \
+		../Food_system/enumerados.h \
+		../Food_system/order.h \
+		../Food_system/credit_card.h \
+		../Food_system/user.h \
+		../Food_system/menu.h \
+		../Food_system/food_user.h \
+		../Food_system/interface_cl.h
+	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/interface_cl.h -o moc_interface_cl.cpp
+
+moc_interface_rest.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobal.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qconfig.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfeatures.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlogging.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qflags.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmutex.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnumeric.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnamespace.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstring.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qchar.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrefcount.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qarraydata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiterator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearraylist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregexp.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmetatype.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qisenum.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmargins.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpaintdevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrect.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsize.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpoint.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpalette.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcolor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qrgb.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qbrush.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpair.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvector.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qmatrix.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpolygon.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qregion.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdatastream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiodevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qline.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtransform.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpainterpath.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qimage.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixelformat.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qshareddata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qhash.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfont.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontmetrics.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcursor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qkeysequence.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvariant.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdebug.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtextstream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlocale.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qset.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurlquery.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfile.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfiledevice.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvector2d.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtouchdevice.h \
+		../Food_system/system.h \
+		../Food_system/restaurant.h \
+		../Food_system/food.h \
+		../Food_system/enumerados.h \
+		../Food_system/order.h \
+		../Food_system/credit_card.h \
+		../Food_system/user.h \
+		../Food_system/menu.h \
+		../Food_system/food_user.h \
+		../Food_system/interface_rest.h
+	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/interface_rest.h -o moc_interface_rest.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_login.h ui_register_client.h ui_register_restaurant.h ui_register_rest_tdc.h ui_register_menu.h ui_add_tlf.h
+compiler_uic_make_all: ui_login.h ui_register_client.h ui_register_restaurant.h ui_register_rest_tdc.h ui_register_menu.h ui_add_tlf.h ui_interface_cl.h ui_interface_rest.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_login.h ui_register_client.h ui_register_restaurant.h ui_register_rest_tdc.h ui_register_menu.h ui_add_tlf.h
+	-$(DEL_FILE) ui_login.h ui_register_client.h ui_register_restaurant.h ui_register_rest_tdc.h ui_register_menu.h ui_add_tlf.h ui_interface_cl.h ui_interface_rest.h
 ui_login.h: ../Food_system/login.ui
 	/opt/Qt/5.5/gcc/bin/uic ../Food_system/login.ui -o ui_login.h
 
@@ -1358,6 +1609,12 @@ ui_register_menu.h: ../Food_system/register_menu.ui
 
 ui_add_tlf.h: ../Food_system/add_tlf.ui
 	/opt/Qt/5.5/gcc/bin/uic ../Food_system/add_tlf.ui -o ui_add_tlf.h
+
+ui_interface_cl.h: ../Food_system/interface_cl.ui
+	/opt/Qt/5.5/gcc/bin/uic ../Food_system/interface_cl.ui -o ui_interface_cl.h
+
+ui_interface_rest.h: ../Food_system/interface_rest.ui
+	/opt/Qt/5.5/gcc/bin/uic ../Food_system/interface_rest.ui -o ui_interface_rest.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1494,6 +1751,9 @@ main.o: ../Food_system/main.cpp ../Food_system/login.h \
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		../Food_system/interface_cl.h \
+		../Food_system/interface_rest.h \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QApplication \
 		/opt/Qt/5.5/gcc/include/QtWidgets/qapplication.h \
 		/opt/Qt/5.5/gcc/include/QtCore/qcoreapplication.h \
@@ -1628,6 +1888,9 @@ login.o: ../Food_system/login.cpp ../Food_system/login.h \
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		../Food_system/interface_cl.h \
+		../Food_system/interface_rest.h \
 		ui_login.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -1690,7 +1953,72 @@ food.o: ../Food_system/food.cpp ../Food_system/food.h
 
 food_user.o: ../Food_system/food_user.cpp ../Food_system/food_user.h \
 		../Food_system/user.h \
-		../Food_system/enumerados.h
+		../Food_system/enumerados.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdebug.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobal.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qconfig.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfeatures.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlogging.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qflags.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmutex.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnumeric.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qhash.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qchar.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiterator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrefcount.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qarraydata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearraylist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnamespace.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstring.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregexp.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpair.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtextstream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiodevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmetatype.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qisenum.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlocale.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvariant.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qshareddata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvector.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpoint.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qset.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o food_user.o ../Food_system/food_user.cpp
 
 menu.o: ../Food_system/menu.cpp ../Food_system/menu.h \
@@ -1718,7 +2046,72 @@ system.o: ../Food_system/system.cpp ../Food_system/system.h \
 		../Food_system/credit_card.h \
 		../Food_system/user.h \
 		../Food_system/menu.h \
-		../Food_system/food_user.h
+		../Food_system/food_user.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdebug.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobal.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qconfig.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfeatures.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlogging.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qflags.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmutex.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnumeric.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qhash.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qchar.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiterator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrefcount.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qarraydata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearraylist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnamespace.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstring.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregexp.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpair.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtextstream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiodevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmetatype.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qisenum.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlocale.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvariant.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qshareddata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvector.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpoint.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qset.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontiguouscache.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o system.o ../Food_system/system.cpp
 
 user.o: ../Food_system/user.cpp ../Food_system/user.h
@@ -1849,6 +2242,9 @@ register_client.o: ../Food_system/register_client.cpp ../Food_system/register_cl
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		../Food_system/interface_cl.h \
+		../Food_system/interface_rest.h \
 		ui_register_client.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -2027,6 +2423,8 @@ register_restaurant.o: ../Food_system/register_restaurant.cpp ../Food_system/reg
 		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
 		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
 		ui_register_restaurant.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -2265,7 +2663,8 @@ register_rest_tdc.o: ../Food_system/register_rest_tdc.cpp ../Food_system/registe
 		/opt/Qt/5.5/gcc/include/QtWidgets/QSpacerItem \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QSpinBox \
 		/opt/Qt/5.5/gcc/include/QtWidgets/qspinbox.h \
-		/opt/Qt/5.5/gcc/include/QtWidgets/QVBoxLayout
+		/opt/Qt/5.5/gcc/include/QtWidgets/QVBoxLayout \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o register_rest_tdc.o ../Food_system/register_rest_tdc.cpp
 
 register_menu.o: ../Food_system/register_menu.cpp ../Food_system/register_menu.h \
@@ -2554,8 +2953,337 @@ add_tlf.o: ../Food_system/add_tlf.cpp ../Food_system/add_tlf.h \
 		../Food_system/credit_card.h \
 		../Food_system/user.h \
 		../Food_system/menu.h \
-		ui_add_tlf.h
+		/opt/Qt/5.5/gcc/include/QtWidgets/QMessageBox \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		ui_add_tlf.h \
+		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qaction.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qicon.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qactiongroup.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QApplication \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qapplication.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreapplication.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qeventloop.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qguiapplication.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qinputmethod.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QButtonGroup \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QHBoxLayout \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QHeaderView \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qheaderview.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qframe.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qstyleoption.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvalidator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregularexpression.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qslider.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractslider.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qstyle.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qtabbar.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qrubberband.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QLabel \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlabel.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QLineEdit \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlineedit.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtextcursor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtextformat.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpen.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtextoption.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QPushButton \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QSpacerItem \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o add_tlf.o ../Food_system/add_tlf.cpp
+
+interface_cl.o: ../Food_system/interface_cl.cpp ../Food_system/interface_cl.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobal.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qconfig.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfeatures.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlogging.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qflags.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmutex.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnumeric.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnamespace.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstring.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qchar.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrefcount.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qarraydata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiterator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearraylist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregexp.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmetatype.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qisenum.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmargins.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpaintdevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrect.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsize.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpoint.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpalette.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcolor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qrgb.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qbrush.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpair.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvector.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qmatrix.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpolygon.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qregion.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdatastream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiodevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qline.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtransform.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpainterpath.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qimage.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixelformat.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qshareddata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qhash.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfont.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontmetrics.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcursor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qkeysequence.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvariant.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdebug.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtextstream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlocale.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qset.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurlquery.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfile.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfiledevice.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvector2d.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtouchdevice.h \
+		../Food_system/system.h \
+		../Food_system/restaurant.h \
+		../Food_system/food.h \
+		../Food_system/enumerados.h \
+		../Food_system/order.h \
+		../Food_system/credit_card.h \
+		../Food_system/user.h \
+		../Food_system/menu.h \
+		../Food_system/food_user.h \
+		ui_interface_cl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qaction.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qicon.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qactiongroup.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QApplication \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qapplication.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreapplication.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qeventloop.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qguiapplication.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qinputmethod.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QButtonGroup \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QCommandLinkButton \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qcommandlinkbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QHBoxLayout \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QHeaderView \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qheaderview.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qframe.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qstyleoption.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvalidator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregularexpression.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qslider.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractslider.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qstyle.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qtabbar.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qrubberband.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QLabel \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlabel.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QPushButton \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QSpacerItem \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QVBoxLayout
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interface_cl.o ../Food_system/interface_cl.cpp
+
+interface_rest.o: ../Food_system/interface_rest.cpp ../Food_system/interface_rest.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobal.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qconfig.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfeatures.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsystemdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qprocessordetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcompilerdetection.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypeinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtypetraits.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsysinfo.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlogging.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qflags.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbasicatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_bootstrap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qgenericatomic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_cxx11.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_gcc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_msvc.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv7.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv6.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_armv5.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_ia64.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_mips.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_x86.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qatomic_unix.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qglobalstatic.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmutex.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnumeric.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qnamespace.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobjectdefs_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qwindowdefs_win.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstring.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qchar.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrefcount.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qarraydata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringbuilder.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qalgorithms.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiterator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qbytearraylist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringlist.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregexp.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qstringmatcher.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qscopedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmetatype.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvarlengtharray.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontainerfwd.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qisenum.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qobject_impl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmargins.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpaintdevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qrect.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsize.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpoint.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpalette.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcolor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qrgb.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qbrush.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qpair.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvector.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qmatrix.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpolygon.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qregion.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdatastream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qiodevice.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qline.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtransform.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpainterpath.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qimage.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixelformat.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpixmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qshareddata.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qhash.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qsharedpointer_impl.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfont.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontmetrics.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qfontinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qsizepolicy.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qcursor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qkeysequence.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qevent.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qvariant.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qmap.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdebug.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qtextstream.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qlocale.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qset.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcontiguouscache.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurl.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qurlquery.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfile.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfiledevice.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvector2d.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtouchdevice.h \
+		../Food_system/system.h \
+		../Food_system/restaurant.h \
+		../Food_system/food.h \
+		../Food_system/enumerados.h \
+		../Food_system/order.h \
+		../Food_system/credit_card.h \
+		../Food_system/user.h \
+		../Food_system/menu.h \
+		../Food_system/food_user.h \
+		ui_interface_rest.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interface_rest.o ../Food_system/interface_rest.cpp
 
 moc_login.o: moc_login.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_login.o moc_login.cpp
@@ -2574,6 +3302,12 @@ moc_register_menu.o: moc_register_menu.cpp
 
 moc_add_tlf.o: moc_add_tlf.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_add_tlf.o moc_add_tlf.cpp
+
+moc_interface_cl.o: moc_interface_cl.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_interface_cl.o moc_interface_cl.cpp
+
+moc_interface_rest.o: moc_interface_rest.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_interface_rest.o moc_interface_rest.cpp
 
 ####### Install
 

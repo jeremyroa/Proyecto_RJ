@@ -1,0 +1,8 @@
+-Hamburguesas
+ McCarne:4.99:/home/raiden/Desktop/Proyecto_RJ/img_system/Prueba/cadenas-comida-rapida-saludable-carne-examen-antibioticos8mcdonaldsc.jpg
+ McPollo:5.39:/home/raiden/Desktop/Proyecto_RJ/img_system/Prueba/mc-pollo-italiano.png
+-Ensaladas
+ McCesar:9.1:/home/raiden/Desktop/Proyecto_RJ/img_system/Prueba/cesar_1.png
+-Entradas
+ McFries Choco:10.5:/home/raiden/Desktop/Proyecto_RJ/img_system/Prueba/choco-french-fries-mcdonalds-japan-500x366.jpg
+ McNuggets:6.99:/home/raiden/Desktop/Proyecto_RJ/img_system/Prueba/nuggets_mcdonalds.jpg
