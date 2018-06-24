@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     register_client.cpp \
     register_restaurant.cpp \
     register_rest_tdc.cpp \
-    register_menu.cpp
+    register_menu.cpp \
+    add_tlf.cpp
 
 HEADERS  += login.h \
     credit_card.h \
@@ -42,10 +43,12 @@ HEADERS  += login.h \
     register_client.h \
     register_restaurant.h \
     register_rest_tdc.h \
-    register_menu.h
+    register_menu.h \
+    add_tlf.h
 
 FORMS    += login.ui \
     register_client.ui \
     register_restaurant.ui \
     register_rest_tdc.ui \
-    register_menu.ui
+    register_menu.ui \
+    add_tlf.ui

@@ -150,6 +150,10 @@ int Restaurant::set_tlf(std::string TLF)
         if(i == TLF) return 1;
     }
 
+    if(!contains_number(TLF)) return 1;
+
+    if(!(TLF.size() == 11)) return 1;
+
     this->tlf.push_back(TLF);
     return 0;
 }

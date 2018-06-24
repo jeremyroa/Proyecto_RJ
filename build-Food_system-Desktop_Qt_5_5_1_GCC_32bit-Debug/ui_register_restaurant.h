@@ -29,12 +29,14 @@ QT_BEGIN_NAMESPACE
 class Ui_register_restaurant
 {
 public:
-    QHBoxLayout *horizontalLayout_4;
+    QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_3;
+    QLabel *label_14;
     QSpacerItem *horizontalSpacer_2;
     QLabel *label_10;
     QSpacerItem *horizontalSpacer_3;
+    QLabel *label_15;
     QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout;
@@ -47,7 +49,11 @@ public:
     QLabel *label_8;
     QSpacerItem *verticalSpacer_6;
     QLabel *label_9;
+    QSpacerItem *verticalSpacer_7;
     QLabel *label_3;
+    QLabel *label_11;
+    QLabel *label_12;
+    QLabel *label_13;
     QVBoxLayout *verticalLayout_2;
     QLineEdit *lineEdit;
     QSpacerItem *verticalSpacer;
@@ -63,6 +69,11 @@ public:
     QComboBox *comboBox_3;
     QPlainTextEdit *plainTextEdit;
     QPushButton *pushButton_3;
+    QLineEdit *lineEdit_7;
+    QLineEdit *lineEdit_8;
+    QHBoxLayout *horizontalLayout_4;
+    QLineEdit *lineEdit_9;
+    QPushButton *pushButton_4;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
     QSpacerItem *horizontalSpacer;
@@ -72,25 +83,43 @@ public:
     {
         if (register_restaurant->objectName().isEmpty())
             register_restaurant->setObjectName(QStringLiteral("register_restaurant"));
-        register_restaurant->resize(303, 506);
-        horizontalLayout_4 = new QHBoxLayout(register_restaurant);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        register_restaurant->resize(398, 551);
+        verticalLayout_5 = new QVBoxLayout(register_restaurant);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_14 = new QLabel(register_restaurant);
+        label_14->setObjectName(QStringLiteral("label_14"));
+        label_14->setMinimumSize(QSize(100, 100));
+
+        horizontalLayout_3->addWidget(label_14);
+
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_2);
 
         label_10 = new QLabel(register_restaurant);
         label_10->setObjectName(QStringLiteral("label_10"));
+        label_10->setMinimumSize(QSize(100, 100));
+        QFont font;
+        font.setFamily(QStringLiteral("Droid Sans Mono"));
+        font.setPointSize(11);
+        font.setItalic(false);
+        label_10->setFont(font);
 
         horizontalLayout_3->addWidget(label_10);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_3->addItem(horizontalSpacer_3);
+
+        label_15 = new QLabel(register_restaurant);
+        label_15->setObjectName(QStringLiteral("label_15"));
+        label_15->setMinimumSize(QSize(100, 100));
+
+        horizontalLayout_3->addWidget(label_15);
 
 
         verticalLayout_4->addLayout(horizontalLayout_3);
@@ -153,11 +182,33 @@ public:
 
         verticalLayout->addWidget(label_9);
 
+        verticalSpacer_7 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout->addItem(verticalSpacer_7);
+
         label_3 = new QLabel(register_restaurant);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_3);
+
+        label_11 = new QLabel(register_restaurant);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_11);
+
+        label_12 = new QLabel(register_restaurant);
+        label_12->setObjectName(QStringLiteral("label_12"));
+        label_12->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_12);
+
+        label_13 = new QLabel(register_restaurant);
+        label_13->setObjectName(QStringLiteral("label_13"));
+        label_13->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_13);
 
 
         horizontalLayout_2->addLayout(verticalLayout);
@@ -169,7 +220,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit);
 
-        verticalSpacer = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout_2->addItem(verticalSpacer);
 
@@ -196,7 +247,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_4);
 
-        verticalSpacer_4 = new QSpacerItem(20, 7, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_4 = new QSpacerItem(20, 1, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout_2->addItem(verticalSpacer_4);
 
@@ -205,7 +256,7 @@ public:
 
         verticalLayout_2->addWidget(lineEdit_5);
 
-        verticalSpacer_5 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_5 = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         verticalLayout_2->addItem(verticalSpacer_5);
 
@@ -240,6 +291,35 @@ public:
 
         verticalLayout_2->addWidget(pushButton_3);
 
+        lineEdit_7 = new QLineEdit(register_restaurant);
+        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
+        lineEdit_7->setEchoMode(QLineEdit::Password);
+
+        verticalLayout_2->addWidget(lineEdit_7);
+
+        lineEdit_8 = new QLineEdit(register_restaurant);
+        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
+        lineEdit_8->setEchoMode(QLineEdit::Password);
+
+        verticalLayout_2->addWidget(lineEdit_8);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        lineEdit_9 = new QLineEdit(register_restaurant);
+        lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
+        lineEdit_9->setMinimumSize(QSize(150, 0));
+
+        horizontalLayout_4->addWidget(lineEdit_9);
+
+        pushButton_4 = new QPushButton(register_restaurant);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        pushButton_4->setMaximumSize(QSize(20, 16777215));
+
+        horizontalLayout_4->addWidget(pushButton_4);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_4);
+
 
         horizontalLayout_2->addLayout(verticalLayout_2);
 
@@ -269,7 +349,7 @@ public:
         verticalLayout_4->addLayout(verticalLayout_3);
 
 
-        horizontalLayout_4->addLayout(verticalLayout_4);
+        verticalLayout_5->addLayout(verticalLayout_4);
 
 
         retranslateUi(register_restaurant);
@@ -280,7 +360,9 @@ public:
     void retranslateUi(QWidget *register_restaurant)
     {
         register_restaurant->setWindowTitle(QApplication::translate("register_restaurant", "Form", 0));
-        label_10->setText(QApplication::translate("register_restaurant", "TextLabel", 0));
+        label_14->setText(QString());
+        label_10->setText(QApplication::translate("register_restaurant", "Restaurante", 0));
+        label_15->setText(QString());
         label->setText(QApplication::translate("register_restaurant", "Nombre", 0));
         label_2->setText(QApplication::translate("register_restaurant", "RIF", 0));
         label_4->setText(QApplication::translate("register_restaurant", "Estado", 0));
@@ -291,6 +373,9 @@ public:
 "Restaurant", 0));
         label_9->setText(QApplication::translate("register_restaurant", "Descripcion", 0));
         label_3->setText(QApplication::translate("register_restaurant", "Telefono", 0));
+        label_11->setText(QApplication::translate("register_restaurant", "Contrase\303\261a", 0));
+        label_12->setText(QApplication::translate("register_restaurant", "Confirmar", 0));
+        label_13->setText(QApplication::translate("register_restaurant", "Image", 0));
         comboBox_3->clear();
         comboBox_3->insertItems(0, QStringList()
          << QApplication::translate("register_restaurant", "Comida Rapida", 0)
@@ -309,6 +394,7 @@ public:
          << QString()
         );
         pushButton_3->setText(QApplication::translate("register_restaurant", "Agregar", 0));
+        pushButton_4->setText(QApplication::translate("register_restaurant", "..", 0));
         pushButton->setText(QApplication::translate("register_restaurant", "Pagar", 0));
         pushButton_2->setText(QApplication::translate("register_restaurant", "Cancelar", 0));
     } // retranslateUi

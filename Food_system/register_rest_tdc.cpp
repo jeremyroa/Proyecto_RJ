@@ -20,3 +20,8 @@ void Register_rest_tdc::on_pushButton_clicked()
   this->menu->show();
   hide();
 }
+
+void Register_rest_tdc::on_pushButton_2_clicked()
+{
+    close();
+}

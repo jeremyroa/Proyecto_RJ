@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "register_rest_tdc.h"
 #include "system.h"
+#include "add_tlf.h"
 
 namespace Ui {
 class register_restaurant;
@@ -19,13 +20,18 @@ public:
 
     Register_rest_tdc *tdc;
     System sys;
-    Restaurant rest;
+    Restaurant restau;
+    Add_TLF *tlf;
 
 
 private slots:
     void on_pushButton_clicked();
 
     void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+    
+    void on_pushButton_4_clicked();
 
 private:
     Ui::register_restaurant *ui;
