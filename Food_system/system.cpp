@@ -1,10 +1,13 @@
 #include <system.h>
 #include <sstream>
+#include "qdebug.h"
 
 System::System()
 {
     client = Food_user();
     r = Restaurant();
+
+    this->create_database();
 }
 
 int confirmation_client(int pos, std::string arc,int mov, std::string id,int fill)
@@ -65,13 +68,13 @@ int confirmation_rests(int hash,int mov,std::string arc, std::string new_rest)
        return -1;
 
     arch.seekg((hash -1) * mov);
-    if(arch.peek() == '0'){
+    if(arch.peek() != '0'){
         arch.close();
-        return -1;
+        return 0;
     }
     arch.close();
 
-    return 0;
+    return -1;
 }
 
 bool verify_database(std::string name_arch)
@@ -313,11 +316,15 @@ int System::add_rest(Restaurant new_r)
 
     char car;
 
+
     std::hash<std::string> hash_rest;
     hash = hash_rest(new_r.get_rif()) % 10000;
 
-    if (confirmation_rests(hash, 111, "../database/restaurants.txt",new_r.get_name()) == 0)
+    qDebug() << hash << "\n" ;
+
+    if (confirmation_rests(hash, 111, "../database/restaurants.txt",new_r.get_rif()) == 0)
     {
+        qDebug() << QString::fromStdString(new_r.get_rif())<< "---" << QString::fromStdString(new_r.get_password());
         std::fstream arch;
         arch.open("../database/restaurants.txt");
         arch.seekp((hash - 1)*mov);
@@ -387,6 +394,28 @@ int System::add_rest(Restaurant new_r)
             we << "-" << i.second << "\n";
             for(auto &j : i.first)
             {
+                /*std::string aux = j.get_image();
+                std::string aux_2;
+
+                int i;
+
+                for(i = (aux.size() - 1); i >= 0 ; i--)
+                {
+                   if(aux[i] == '/') break;
+                }
+
+
+                aux_2 = aux.substr(i);
+
+
+                aux = "cp "+aux+" "+"../database/rest" + new_r.get_rif();
+                system(aux.c_str());
+
+                aux_2 = "../database/rest/" + new_r.get_rif() + aux_2;
+
+                qDebug() << QString::fromStdString(aux_2) << "-----\n";*/
+
+                //j.set_image(aux);
                 we << " " << j.get_name() << ":" << j.get_price() << ":" << j.get_image() << "\n";
             }
         }

@@ -1,0 +1,6 @@
+-Hamburguesa
+ Mcnifica:5:/home/raiden/Pictures/cadenas-comida-rapida-saludable-carne-examen-antibioticos8mcdonaldsc.jpg
+-Hamburguesas
+ Mcpollo:4242:/home/raiden/Pictures/mc-pollo-italiano.png
+-Ensalada
+ daf:23423:/home/raiden/Pictures/cesar_1.png

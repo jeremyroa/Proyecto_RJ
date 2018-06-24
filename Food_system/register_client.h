@@ -15,6 +15,11 @@ class register_client : public QWidget
 public:
     explicit register_client(QWidget *parent = 0);
     ~register_client();
+    System sys;
+    Food_user client;
+
+private slots:
+  void on_pushButton_clicked();
 
 private:
     Ui::register_client *ui;

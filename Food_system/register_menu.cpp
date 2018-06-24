@@ -36,7 +36,7 @@ void Register_Menu::on_pushButton_4_clicked()
    this->ui->lineEdit->setText(img_name);
    QPixmap aux(img_name);
 
-   qDebug() << img_name;
+   //qDebug() << img_name;
 
    this->ui->label_5_prueba->setPixmap(aux);
    this->ui->label_5_prueba->setScaledContents(true);
@@ -64,8 +64,8 @@ void Register_Menu::on_pushButton_clicked()
        aux_comida.first.set_price(price);
        aux_comida.second = category.toStdString();
        this->rest_menu.menu.set_catalog_item(aux_comida);
-       std::string aux = image.toStdString();
-       aux = "cp "+image.toStdString()+" "+"../database/rest" + this->rest_menu.get_rif();
+       //std::string aux = image.toStdString();
+       //aux = "cp "+image.toStdString()+" "+"../database/rest" + this->rest_menu.get_rif();
        //system(aux.c_str());
 
 
@@ -78,8 +78,14 @@ void Register_Menu::on_label_5_prueba_linkActivated(const QString &link)
 
 void Register_Menu::on_pushButton_2_clicked()
 {    
-    qDebug() << QString::fromStdString(this->rest_menu.get_password()) << "---" <<QString::fromStdString(this->rest_menu.get_rif());
+    //qDebug() << QString::fromStdString(this->rest_menu.get_password()) << "---" <<QString::fromStdString(this->rest_menu.get_rif());
     if(this->sys.add_rest(this->rest_menu) == 0)
+    {
       QMessageBox::information(this,"Creacion","Se Registro con Exito");
+
+    }
+
+    else QMessageBox::warning(this,"Creacion","Restaurant ya existente");
+
     this->close();
 }
