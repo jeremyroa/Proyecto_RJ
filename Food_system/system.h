@@ -6,6 +6,8 @@
 #include <functional>
 #include <cstdlib>
 #include <sys/stat.h>
+#include <stdlib.h>
+
 class System
 {
     public:

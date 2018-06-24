@@ -5,7 +5,7 @@
 #include "system.h"
 #include "QFileDialog"
 #include "QPicture"
-
+#include "login.h"
 namespace Ui {
 class Register_Menu;
 }
@@ -26,6 +26,8 @@ private slots:
     void on_label_5_prueba_linkActivated(const QString &link);
 
     void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::Register_Menu *ui;

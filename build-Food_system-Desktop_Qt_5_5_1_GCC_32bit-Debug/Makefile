@@ -713,6 +713,12 @@ moc_login.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		../Food_system/register_restaurant.h \
 		../Food_system/register_rest_tdc.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/login.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/login.h -o moc_login.cpp
 
@@ -834,6 +840,12 @@ moc_register_client.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		../Food_system/register_restaurant.h \
 		../Food_system/register_rest_tdc.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		../Food_system/register_client.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/register_client.h -o moc_register_client.cpp
 
@@ -950,6 +962,17 @@ moc_register_restaurant.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		../Food_system/menu.h \
 		../Food_system/food_user.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
+		../Food_system/login.h \
+		../Food_system/register_client.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		../Food_system/register_restaurant.h \
 		../Food_system/register_restaurant.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/register_restaurant.h -o moc_register_restaurant.cpp
 
@@ -1065,6 +1088,18 @@ moc_register_rest_tdc.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		../Food_system/menu.h \
 		../Food_system/food_user.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
+		../Food_system/login.h \
+		../Food_system/register_client.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		../Food_system/register_restaurant.h \
+		../Food_system/register_rest_tdc.h \
 		../Food_system/register_rest_tdc.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/register_rest_tdc.h -o moc_register_rest_tdc.cpp
 
@@ -1179,6 +1214,19 @@ moc_register_menu.cpp: /opt/Qt/5.5/gcc/include/QtWidgets/QWidget \
 		../Food_system/user.h \
 		../Food_system/menu.h \
 		../Food_system/food_user.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
+		../Food_system/login.h \
+		../Food_system/register_client.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		../Food_system/register_restaurant.h \
+		../Food_system/register_rest_tdc.h \
+		../Food_system/register_menu.h \
 		../Food_system/register_menu.h
 	/opt/Qt/5.5/gcc/bin/moc $(DEFINES) -I/opt/Qt/5.5/gcc/mkspecs/linux-g++-32 -I/home/raiden/Desktop/Proyecto_RJ/Food_system -I/opt/Qt/5.5/gcc/include -I/opt/Qt/5.5/gcc/include/QtWidgets -I/opt/Qt/5.5/gcc/include/QtGui -I/opt/Qt/5.5/gcc/include/QtCore -I. ../Food_system/register_menu.h -o moc_register_menu.cpp
 
@@ -1330,6 +1378,12 @@ main.o: ../Food_system/main.cpp ../Food_system/login.h \
 		../Food_system/register_restaurant.h \
 		../Food_system/register_rest_tdc.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QApplication \
 		/opt/Qt/5.5/gcc/include/QtWidgets/qapplication.h \
 		/opt/Qt/5.5/gcc/include/QtCore/qcoreapplication.h \
@@ -1457,6 +1511,12 @@ login.o: ../Food_system/login.cpp ../Food_system/login.h \
 		../Food_system/register_restaurant.h \
 		../Food_system/register_rest_tdc.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		ui_login.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -1671,6 +1731,12 @@ register_client.o: ../Food_system/register_client.cpp ../Food_system/register_cl
 		../Food_system/register_restaurant.h \
 		../Food_system/register_rest_tdc.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
 		ui_register_client.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -1841,6 +1907,16 @@ register_restaurant.o: ../Food_system/register_restaurant.cpp ../Food_system/reg
 		../Food_system/menu.h \
 		../Food_system/food_user.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
+		../Food_system/login.h \
+		../Food_system/register_client.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
 		ui_register_restaurant.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -2018,6 +2094,17 @@ register_rest_tdc.o: ../Food_system/register_rest_tdc.cpp ../Food_system/registe
 		../Food_system/menu.h \
 		../Food_system/food_user.h \
 		../Food_system/register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
+		../Food_system/login.h \
+		../Food_system/register_client.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		../Food_system/register_restaurant.h \
 		ui_register_rest_tdc.h \
 		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
 		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
@@ -2187,7 +2274,71 @@ register_menu.o: ../Food_system/register_menu.cpp ../Food_system/register_menu.h
 		../Food_system/user.h \
 		../Food_system/menu.h \
 		../Food_system/food_user.h \
-		ui_register_menu.h
+		/opt/Qt/5.5/gcc/include/QtWidgets/QFileDialog \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qfiledialog.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qdir.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qfileinfo.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdialog.h \
+		/opt/Qt/5.5/gcc/include/QtGui/QPicture \
+		/opt/Qt/5.5/gcc/include/QtGui/qpicture.h \
+		../Food_system/login.h \
+		../Food_system/register_client.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qmessagebox.h \
+		../Food_system/register_restaurant.h \
+		../Food_system/register_rest_tdc.h \
+		ui_register_menu.h \
+		/opt/Qt/5.5/gcc/include/QtCore/QVariant \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QAction \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qaction.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qicon.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qactiongroup.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QApplication \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qapplication.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qcoreapplication.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qeventloop.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qdesktopwidget.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qguiapplication.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qinputmethod.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QButtonGroup \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qbuttongroup.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QDoubleSpinBox \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qspinbox.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractspinbox.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qvalidator.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qregularexpression.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QHBoxLayout \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qboxlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlayoutitem.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qgridlayout.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QHeaderView \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qheaderview.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractitemview.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractscrollarea.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qframe.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qabstractitemmodel.h \
+		/opt/Qt/5.5/gcc/include/QtCore/qitemselectionmodel.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractitemdelegate.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qstyleoption.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qslider.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractslider.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qstyle.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qtabbar.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qtabwidget.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qrubberband.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QLabel \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlabel.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QLineEdit \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qlineedit.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtextcursor.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtextformat.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qpen.h \
+		/opt/Qt/5.5/gcc/include/QtGui/qtextoption.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QPushButton \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qpushbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/qabstractbutton.h \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QSpacerItem \
+		/opt/Qt/5.5/gcc/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o register_menu.o ../Food_system/register_menu.cpp
 
 moc_login.o: moc_login.cpp 

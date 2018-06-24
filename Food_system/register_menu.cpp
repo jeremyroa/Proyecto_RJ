@@ -32,6 +32,8 @@ void Register_Menu::on_pushButton_4_clicked()
    aux_img = aux_img.substr(7);
    img_name = QString::fromStdString(aux_img);
 
+   this->ui->lineEdit->setText(img_name);
+
    QPixmap aux(img_name);
 
    qDebug() << img_name;
@@ -45,10 +47,41 @@ void Register_Menu::on_pushButton_4_clicked()
 
 void Register_Menu::on_pushButton_clicked()
 {
+   std::pair<Food,std::string> aux_comida;
+   QString category = this->ui->lineEdit_2->text();
+   QString name = this->ui->lineEdit_3->text();
+   float price = this->ui->doubleSpinBox->value();
+   QString image = this->ui->lineEdit->text();
+
+   this->ui->lineEdit_2->clear();
+   this->ui->lineEdit_3->clear();
+   this->ui->lineEdit->clear();
+   this->ui->doubleSpinBox->clear();
+   this->ui->label_5_prueba->clear();
+
+   aux_comida.first.set_name(name.toStdString());
+   aux_comida.first.set_image(image.toStdString());
+   aux_comida.first.set_price(price);
+   aux_comida.second = category.toStdString();
+   this->rest_menu.menu.set_catalog_item(aux_comida);
+   std::string aux = image.toStdString();
+   aux = "cp "+image.toStdString()+" "+"../database/rest" + this->rest_menu.get_rif();
+   //system(aux.c_str());
+
+
+
+
+
 
 }
 
 void Register_Menu::on_label_5_prueba_linkActivated(const QString &link)
 {
 
+}
+
+void Register_Menu::on_pushButton_2_clicked()
+{
+    QMessageBox::information(this,"Creacion","Se Registro con Exito");
+    this->close();
 }

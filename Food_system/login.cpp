@@ -35,7 +35,6 @@ void Login::on_pushButton_3_clicked()
         temp_r->show();
     }
 
-    hide();
 }
 
 void Login::on_pushButton_clicked()
