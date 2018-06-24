@@ -85,12 +85,14 @@ void register_client::on_pushButton_clicked()
          QMessageBox::warning(this,"Error Favoritos","");
          ban = 1;
       }
-      if(this->sys.add_user(this->client) != 0){
+      if(ban == 0){
+        if(this->sys.add_user(this->client) == 0){
           QMessageBox::information(this,"Creacion","Se Registro con Exito");
-      }
-      else QMessageBox::warning(this,"Creacion","Usuario ya existente");
+        }
+        else QMessageBox::warning(this,"Creacion","Usuario ya existente");
 
-      if(ban == 0) close();
+        close();
+      }
     }
 
 }

@@ -207,7 +207,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_cedula">
+            <widget class="QLineEdit" name="lineEdit_apellido">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>
@@ -217,7 +217,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="lineEdit_apellido">
+            <widget class="QLineEdit" name="lineEdit_cedula">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>

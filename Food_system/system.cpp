@@ -149,7 +149,7 @@ int System::add_user(Food_user client)
         arch.open("../database/food_users.txt");
 
         if (!arch.is_open())
-            return false;
+            return -1;
         
         arch.clear();
         if(pos == 0 )
@@ -175,6 +175,9 @@ int System::add_user(Food_user client)
         std::string o = def + "/" + client.get_id() + "_orders.txt";
         std::ofstream we;
         we.open(info);
+
+        qDebug() << "Add user: " << QString::fromStdString(client.get_city()) << "---";
+
         we << " " << client.get_name() << ":" << client.get_lname() << ":" << client.get_age() << ":" << client.get_sex() << "\n" 
         << " " << client.get_phone() << ":" << client.get_state() << ":" << client.get_city() << "\n ";
         
@@ -188,11 +191,11 @@ int System::add_user(Food_user client)
         we.open(o);
         we.close();
         ///std::cout << hash << "\n";
-        return 1;
+        return 0;
     }
     else
     {
-        return 0;
+        return -1;
     }
 
 }

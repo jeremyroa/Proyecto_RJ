@@ -1,4 +1,5 @@
 #include <food_user.h>
+#include "qdebug.h"
 Food_user::Food_user() : Cuser()
 {
     this->phone = "04000000000";
@@ -18,6 +19,7 @@ Food_user::Food_user(const Food_user &cop) : Cuser()
 
     this->phone = cop.phone;
     this->state = cop.state;
+    this->city = cop.city;
     this->email = cop.email;
     this->fav = cop.fav;
 }
@@ -45,7 +47,7 @@ std::vector<rest> Food_user::get_fav() const
 
 int Food_user::set_phone(std::string ph)
 {
-    if ((ph.size() == 10) and (contains_number(ph)))
+    if ((ph.size() == 11) and (contains_number(ph)))
     {
         this->phone = ph;
         return 0;
@@ -59,6 +61,7 @@ int Food_user::set_state(std::string st)
 }
 int Food_user::set_city(std::string cit)
 {
+    qDebug() << "Set city: " << QString::fromStdString(cit) << "---";
     this->city = cit;
     return 0;
 }
