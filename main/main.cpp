@@ -5,6 +5,8 @@
 
 int main(){
 
+    //std::cout << "Estoy aqui";
+
     /* Menu a;
 
     Food c;
@@ -12,7 +14,13 @@ int main(){
     c.set_name("Arroz chino");
     c.set_price(20.89);
 
+<<<<<<< HEAD
     *//*
+=======
+    */
+   std::pair<Food,std::string> b;
+   /*
+>>>>>>> origin/definitiva
 
     b.second = "Plato fuerte";
     b.first = c;
@@ -99,11 +107,17 @@ int main(){
 
     r.set_state("Merida");
 
+<<<<<<< HEAD
     std::pair<Food, std::string> b;
+=======
+    r.set_tlf("04247755269");
+
+    //std::pair<Food, std::string> b;
+>>>>>>> origin/definitiva
 
     b.second = "Plato Fuerte";
 
-    std::cout << "Estoy bien";
+    //std::cout << "Estoy bien";
 
     Food test;
 
@@ -117,9 +131,42 @@ int main(){
 
     r.menu.set_catalog_item(b);
 
+    b.first = test;
 
+    test.set_name("Mandarinas");
+    test.set_price(1000);
+    test.set_image("44784/");
+
+    b.second = "Derivados";
+
+    b.first = test;
+
+    r.menu.set_catalog_item(b);
+
+    test.set_name("Lumpias");
+    test.set_price(1000);
+    test.set_image("44784/");
+
+    b.second = "Plato Fuerte";
+
+    b.first = test;
+
+    r.menu.set_catalog_item(b);
+
+   
     a.add_rest(r);
 
+    
+
+    a.login_rest(r.get_rif(),r.get_password());
+    
+    auto iop = a.r.menu.get_catalog();
+    for(auto &as : iop){
+        std::cout << as.second << "\n";
+        for(auto &m : as.first){
+            std::cout << m.get_name() << " - " << m.get_price() << " - " << m.get_image() << "\n";
+        }
+    }
 
     return 0;
 }

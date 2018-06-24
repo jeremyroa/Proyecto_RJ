@@ -322,17 +322,10 @@ int System::add_rest(Restaurant new_r)
         arch.open("../database/restaurants.txt");
         arch.seekp((hash - 1)*mov);
         arch << std::left << std::setw(2) << "0";
-<<<<<<< HEAD
-        arch << std::left << std::setw(10) << new_r.get_rif() << " ";
-        arch << std::left << std::setw(33) << new_r.get_name() << " ";
-        arch << std::left << std::setw(50) << new_r.get_email() << " ";
-        arch << std::left << std::setw(8) << new_r.get_password() << " ";
-=======
         arch << std::left << std::setw(10) << new_r.get_rif() << ":";
         arch << std::left << std::setw(33) << new_r.get_name() << ":";
         arch << std::left << std::setw(50) << new_r.get_email() << ":";
         arch << std::left << std::setw(8) << new_r.get_password() << ":";
->>>>>>> origin/definitiva
         arch << std::left << std::setw(3) << static_cast<int>(new_r.get_type_rest())<< "\n";
 
         arch.close();
