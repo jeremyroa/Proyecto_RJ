@@ -1,5 +1,7 @@
 #include "user_menu.h"
 #include "ui_user_menu.h"
+#include "sstream"
+#include "qdebug.h"
 
 
 User_Menu::User_Menu(QWidget *parent) :
@@ -11,6 +13,7 @@ User_Menu::User_Menu(QWidget *parent) :
 
 void User_Menu::set_item(Restaurant asd)
 {
+
   QPixmap a(QString::fromStdString(asd.get_image()));
   this->ui->label->setPixmap(a);
   this->ui->label_2->setText(QString::fromStdString(asd.get_name()));
@@ -27,4 +30,54 @@ void User_Menu::set_item(Restaurant asd)
 User_Menu::~User_Menu()
 {
   delete ui;
+}
+
+void User_Menu::on_pushButton_4_clicked()
+{
+  this->ui->listWidget->clear();
+  QString aux = this->ui->comboBox->currentText();
+  std::string cat = aux.toStdString();
+  Menu men = this->sys.r.get_menu();
+  for(auto primero : men.get_catalog()){
+    if(primero.second == cat){
+      for(auto segundo : primero.first){
+        QListWidgetItem *a = new QListWidgetItem;
+        std::string b = segundo.get_name();
+        std::string m;
+        std::stringstream var;
+        var << b << std::setfill('.') << std::setw(40) << " " << std::to_string(segundo.get_price());
+        std::getline(var,m);
+        //qDebug() << QString::fromStdString(m);
+        b = m;
+        a->setText(QString::fromStdString(b));
+        QIcon p(QString::fromStdString(segundo.get_image()));
+        a->setIcon(p);
+        this->ui->listWidget->addItem(a);
+      }
+      break;
+    }
+  }
+}
+
+void User_Menu::on_pushButton_2_clicked()
+{
+  std::string::size_type sz;
+  std::stringstream rm(this->ind);
+  std::string k;
+  std::getline(rm,k,'.');
+  std::pair<Food,int> aux;
+  aux.first.set_name(k);
+  std::getline(rm,k,' ');
+  std::getline(rm,k);
+  aux.first.set_price(std::stof(k,&sz));
+  aux.first.set_image(this->ic);
+}
+
+void User_Menu::on_listWidget_clicked(const QModelIndex &index)
+{
+ QString sd = index.data().toString();
+  this->ind = sd.toStdString();
+  QIcon ak = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
+  qDebug() << ak.name();
+  this->ic = ak.name().toStdString();
 }

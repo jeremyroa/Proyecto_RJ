@@ -20,6 +20,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -28,22 +29,26 @@ QT_BEGIN_NAMESPACE
 class Ui_User_Menu
 {
 public:
+    QVBoxLayout *verticalLayout_5;
     QVBoxLayout *verticalLayout_4;
-    QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QLabel *label_3;
+    QHBoxLayout *horizontalLayout_4;
     QComboBox *comboBox;
+    QPushButton *pushButton_4;
     QListWidget *listWidget;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_5;
     QHBoxLayout *horizontalLayout_2;
-    QLabel *label_4;
+    QLabel *label_5;
+    QSpinBox *spinBox;
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_2;
     QPushButton *pushButton;
-    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton_3;
@@ -53,11 +58,11 @@ public:
     {
         if (User_Menu->objectName().isEmpty())
             User_Menu->setObjectName(QStringLiteral("User_Menu"));
-        User_Menu->resize(421, 477);
-        verticalLayout_4 = new QVBoxLayout(User_Menu);
+        User_Menu->resize(428, 477);
+        verticalLayout_5 = new QVBoxLayout(User_Menu);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
+        verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label = new QLabel(User_Menu);
@@ -96,56 +101,74 @@ public:
         horizontalLayout->addLayout(verticalLayout);
 
 
-        verticalLayout_3->addLayout(horizontalLayout);
+        verticalLayout_4->addLayout(horizontalLayout);
 
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
         comboBox = new QComboBox(User_Menu);
         comboBox->setObjectName(QStringLiteral("comboBox"));
 
-        verticalLayout_3->addWidget(comboBox);
+        horizontalLayout_4->addWidget(comboBox);
+
+        pushButton_4 = new QPushButton(User_Menu);
+        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+
+        horizontalLayout_4->addWidget(pushButton_4);
+
+
+        verticalLayout_4->addLayout(horizontalLayout_4);
 
         listWidget = new QListWidget(User_Menu);
         listWidget->setObjectName(QStringLiteral("listWidget"));
         listWidget->setMinimumSize(QSize(100, 100));
         listWidget->setMaximumSize(QSize(400, 400));
 
-        verticalLayout_3->addWidget(listWidget);
+        verticalLayout_4->addWidget(listWidget);
 
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        label_4 = new QLabel(User_Menu);
-        label_4->setObjectName(QStringLiteral("label_4"));
-        label_4->setMinimumSize(QSize(100, 100));
-        label_4->setMaximumSize(QSize(100, 100));
-        label_4->setScaledContents(true);
-        label_4->setAlignment(Qt::AlignCenter);
+        label_5 = new QLabel(User_Menu);
+        label_5->setObjectName(QStringLiteral("label_5"));
 
-        horizontalLayout_2->addWidget(label_4);
+        horizontalLayout_2->addWidget(label_5);
 
-        horizontalSpacer = new QSpacerItem(200, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        spinBox = new QSpinBox(User_Menu);
+        spinBox->setObjectName(QStringLiteral("spinBox"));
 
-        horizontalLayout_2->addItem(horizontalSpacer);
+        horizontalLayout_2->addWidget(spinBox);
+
+
+        horizontalLayout_5->addLayout(horizontalLayout_2);
+
+        horizontalSpacer = new QSpacerItem(80, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         pushButton_2 = new QPushButton(User_Menu);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        pushButton_2->setMinimumSize(QSize(100, 25));
+        pushButton_2->setMaximumSize(QSize(100, 25));
 
         verticalLayout_2->addWidget(pushButton_2);
 
         pushButton = new QPushButton(User_Menu);
         pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setMinimumSize(QSize(100, 25));
+        pushButton->setMaximumSize(QSize(100, 16777215));
 
         verticalLayout_2->addWidget(pushButton);
 
 
-        horizontalLayout_2->addLayout(verticalLayout_2);
+        horizontalLayout_5->addLayout(verticalLayout_2);
 
 
-        verticalLayout_3->addLayout(horizontalLayout_2);
-
-        verticalSpacer = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        verticalLayout_3->addItem(verticalSpacer);
+        verticalLayout_3->addLayout(horizontalLayout_5);
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
@@ -171,6 +194,9 @@ public:
 
         verticalLayout_4->addLayout(verticalLayout_3);
 
+
+        verticalLayout_5->addLayout(verticalLayout_4);
+
         QWidget::setTabOrder(comboBox, listWidget);
 
         retranslateUi(User_Menu);
@@ -184,7 +210,8 @@ public:
         label->setText(QApplication::translate("User_Menu", "TextLabel", 0));
         label_2->setText(QApplication::translate("User_Menu", "TextLabel", 0));
         label_3->setText(QApplication::translate("User_Menu", "TextLabel", 0));
-        label_4->setText(QApplication::translate("User_Menu", "No image", 0));
+        pushButton_4->setText(QApplication::translate("User_Menu", "Actualizar", 0));
+        label_5->setText(QApplication::translate("User_Menu", "Cantidad", 0));
         pushButton_2->setText(QApplication::translate("User_Menu", "Agregar", 0));
         pushButton->setText(QApplication::translate("User_Menu", "Eliminar", 0));
         pushButton_3->setText(QString());
