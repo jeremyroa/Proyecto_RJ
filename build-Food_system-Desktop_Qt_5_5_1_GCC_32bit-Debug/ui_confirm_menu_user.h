@@ -15,7 +15,7 @@
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
@@ -28,7 +28,7 @@ class Ui_Confirm_menu_user
 public:
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
-    QListView *listView;
+    QListWidget *listWidget;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton;
@@ -45,10 +45,10 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        listView = new QListView(Confirm_menu_user);
-        listView->setObjectName(QStringLiteral("listView"));
+        listWidget = new QListWidget(Confirm_menu_user);
+        listWidget->setObjectName(QStringLiteral("listWidget"));
 
-        verticalLayout->addWidget(listView);
+        verticalLayout->addWidget(listWidget);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));

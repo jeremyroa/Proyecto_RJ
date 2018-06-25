@@ -70,14 +70,23 @@ void User_Menu::on_pushButton_2_clicked()
   std::getline(rm,k,' ');
   std::getline(rm,k);
   aux.first.set_price(std::stof(k,&sz));
-  aux.first.set_image(this->ic);
+  aux.first.set_image("");
+  aux.second = this->ui->spinBox->value();
+  this->ord.set_service_item(aux);
+  qDebug() <<  this->ord.get_total();
 }
 
 void User_Menu::on_listWidget_clicked(const QModelIndex &index)
 {
- QString sd = index.data().toString();
+  QString sd = index.data().toString();
   this->ind = sd.toStdString();
-  QIcon ak = qvariant_cast<QIcon>(index.data(Qt::DecorationRole));
-  qDebug() << ak.name();
-  this->ic = ak.name().toStdString();
+}
+
+void User_Menu::on_pushButton_3_clicked()
+{
+    this->Cmenu = new Confirm_menu_user;
+    this->Cmenu->sys = this->sys;
+    this->Cmenu->ord = this->ord;
+    this->Cmenu->set_item();
+    this->Cmenu->show();
 }
