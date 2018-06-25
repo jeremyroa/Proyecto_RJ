@@ -554,6 +554,395 @@ Restaurant System::search_first()
   return rest_aux;
 }
 
+Restaurant System::search_second()
+{
+
+  std::ifstream arch;
+
+  std::string man,r,p,n,bar,em,t;
+
+  Restaurant rest_aux;
+
+  arch.open("../database/restaurants.txt");
+
+  int i = 0, j = 1;
+
+  while(!arch.eof())
+  {
+      qDebug() << "No Problema sistem" << "/---/" << arch.peek()  ;
+      if(arch.peek() == '0' && i == 1)
+      {
+          std::getline(arch,man,'\n');
+          man = man.substr(2);
+          std::stringstream ar(man);
+          std::getline(ar,r,':');
+          std::getline(ar,n,' ');
+          std::getline(ar,bar,':');
+          std::getline(ar,em, ' ');
+          std::getline(ar,bar, ':');
+          std::getline(ar,p, ':');
+          std::getline(ar,t, ' ');
+
+          rest_aux.set_rif(r);
+          rest_aux.set_password(p);
+          rest_aux.set_name(n);
+          rest_aux.set_email(em);
+          int a = atoi(t.c_str());
+          rest_aux.set_type_rest(static_cast<rest>(a));
+
+          arch.close();
+
+          std::string def = "../database/rest/" + rest_aux.get_rif();
+          std::string info = def + "/" + rest_aux.get_rif() + "_info.txt";
+          std::string o = def + "/" + rest_aux.get_rif() + "_orders_temporal.txt";
+          std::string ord = def + "/" + rest_aux.get_rif() + "_orders.txt";
+          std::string menu = def + "/" + rest_aux.get_rif() + "_menu.txt";
+
+
+          arch.open(info);
+
+          ///Img
+
+          std::getline(arch,bar,'\n');
+
+          rest_aux.set_image(bar);
+
+          ///State
+
+          std::getline(arch,bar,':');
+
+          rest_aux.set_state(bar);
+
+          ///City
+
+          std::getline(arch, bar, ':');
+
+          rest_aux.set_city(bar);
+
+          ///Address
+
+          std::getline(arch, bar, '\n');
+
+          rest_aux.set_address(bar);
+
+          ///Phones
+
+
+          std::getline(arch, bar, '\n');
+          std::string tel;
+          std::stringstream var(bar);
+
+          while(!var.eof()){
+              std::getline(var,tel,':');
+              if(var.eof()) break;
+              this->r.set_tlf(tel);
+          }
+
+
+          std::getline(arch,bar,'\n');
+          rest_aux.set_description(bar);
+
+          ///Credit Card
+          std::getline(arch, bar, ':');
+          TDC ak;
+          ak.set_id(bar);
+          std::getline(arch, bar, ':');
+          ak.set_name(bar);
+          std::getline(arch, bar, ':');
+          ak.set_no_id(bar);
+          std::getline(arch,bar,':');
+          ak.set_security(bar);
+          std::getline(arch, bar, ':');
+          date cs;
+          cs.month = atoi(bar.c_str());
+          std::getline(arch, bar, '\n');
+          cs.year = atoi(bar.c_str());
+          ak.set_expired_date(cs);
+          rest_aux.card = ak;
+
+          arch.close();
+
+          std::string abc,ghi;
+          int cont = 0;
+
+          arch.open(menu);
+          Menu aux;
+          std::pair<Food, std::string> b;
+
+          while(!arch.eof())
+          {
+              std::getline(arch, abc, '\n');
+
+
+              if(abc[0] == '-')
+              {
+                  abc = abc.substr(1);
+                  b.second = abc;
+
+
+                  while(arch.peek() != '-' and arch.peek() != '\n' and (!(arch.eof())))
+                  {
+                      std::getline(arch,def,':');
+                      def = def.substr(1);
+                      b.first.set_name(def);
+                      std::getline(arch,def,':');
+                      std::string::size_type sz;
+                      float kl = std::stof(def,&sz);
+                      b.first.set_price(kl);
+                      std::getline(arch,def,'\n');
+                      b.first.set_image(def);
+                      aux.set_catalog_item(b);
+
+                      //std::cout << b.first.get_name() << " - " << b.first.get_image() << " - " << b.first.get_price();
+
+                  }
+
+                  if(arch.eof()) break;
+
+              }
+
+          }
+          rest_aux.menu = aux;
+          arch.close();
+
+          std::fstream arch_2;
+          std::string ask;
+          arch_2.open(ord, std::ios::in | std::ios::binary);
+          if(!(arch_2.get() == -1))
+          {
+              arch_2.seekg(0,arch_2.end);
+              while(1)
+              {
+                  arch_2.seekg(-53, std::ios::cur);
+                  std::cout << "Aqui--- " << arch_2.peek() << "/--/" << arch_2.tellg() << "----" << "\n";
+                  getchar();
+                  if(arch_2.peek() == '*'){
+                      std::getline(arch_2,ask,' ');
+                      ask = ask.substr(1);
+                      rest_aux.flag = atoi(ask.c_str());
+                      break;
+                  }
+              }
+          }
+
+
+          arch_2.close();
+
+          return rest_aux;
+
+
+      }
+      else
+      {
+         if(arch.peek() == '0') i++;
+
+         //arch.seekg(111 * j,std::ios::beg);
+         std::string pr;
+         std::getline(arch,pr,'\n');
+
+         qDebug() << QString::fromStdString(pr);
+
+         j++;
+
+         //if(arch.tellg() = -1) break;
+      }
+  }
+
+  arch.close();
+
+  return rest_aux;
+
+}
+
+Restaurant System::search_third()
+{
+  std::ifstream arch;
+
+  std::string man,r,p,n,bar,em,t;
+
+  Restaurant rest_aux;
+
+  arch.open("../database/restaurants.txt");
+
+  int i = 0;
+
+  while(!arch.eof())
+  {
+      if(arch.peek() == '0' && i == 2)
+      {
+          std::getline(arch,man,'\n');
+          man = man.substr(2);
+          std::stringstream ar(man);
+          std::getline(ar,r,':');
+          std::getline(ar,n,' ');
+          std::getline(ar,bar,':');
+          std::getline(ar,em, ' ');
+          std::getline(ar,bar, ':');
+          std::getline(ar,p, ':');
+          std::getline(ar,t, ' ');
+
+          rest_aux.set_rif(r);
+          rest_aux.set_password(p);
+          rest_aux.set_name(n);
+          rest_aux.set_email(em);
+          int a = atoi(t.c_str());
+          rest_aux.set_type_rest(static_cast<rest>(a));
+
+          arch.close();
+
+          std::string def = "../database/rest/" + rest_aux.get_rif();
+          std::string info = def + "/" + rest_aux.get_rif() + "_info.txt";
+          std::string o = def + "/" + rest_aux.get_rif() + "_orders_temporal.txt";
+          std::string ord = def + "/" + rest_aux.get_rif() + "_orders.txt";
+          std::string menu = def + "/" + rest_aux.get_rif() + "_menu.txt";
+
+
+          arch.open(info);
+
+          ///Img
+
+          std::getline(arch,bar,'\n');
+
+          rest_aux.set_image(bar);
+
+          ///State
+
+          std::getline(arch,bar,':');
+
+          rest_aux.set_state(bar);
+
+          ///City
+
+          std::getline(arch, bar, ':');
+
+          rest_aux.set_city(bar);
+
+          ///Address
+
+          std::getline(arch, bar, '\n');
+
+          rest_aux.set_address(bar);
+
+          ///Phones
+
+
+          std::getline(arch, bar, '\n');
+          std::string tel;
+          std::stringstream var(bar);
+
+          while(!var.eof()){
+              std::getline(var,tel,':');
+              if(var.eof()) break;
+              this->r.set_tlf(tel);
+          }
+
+
+          std::getline(arch,bar,'\n');
+          rest_aux.set_description(bar);
+
+          ///Credit Card
+          std::getline(arch, bar, ':');
+          TDC ak;
+          ak.set_id(bar);
+          std::getline(arch, bar, ':');
+          ak.set_name(bar);
+          std::getline(arch, bar, ':');
+          ak.set_no_id(bar);
+          std::getline(arch,bar,':');
+          ak.set_security(bar);
+          std::getline(arch, bar, ':');
+          date cs;
+          cs.month = atoi(bar.c_str());
+          std::getline(arch, bar, '\n');
+          cs.year = atoi(bar.c_str());
+          ak.set_expired_date(cs);
+          rest_aux.card = ak;
+
+          arch.close();
+
+          std::string abc,ghi;
+          int cont = 0;
+
+          arch.open(menu);
+          Menu aux;
+          std::pair<Food, std::string> b;
+
+          while(!arch.eof())
+          {
+              std::getline(arch, abc, '\n');
+
+
+              if(abc[0] == '-')
+              {
+                  abc = abc.substr(1);
+                  b.second = abc;
+
+
+                  while(arch.peek() != '-' and arch.peek() != '\n' and (!(arch.eof())))
+                  {
+                      std::getline(arch,def,':');
+                      def = def.substr(1);
+                      b.first.set_name(def);
+                      std::getline(arch,def,':');
+                      std::string::size_type sz;
+                      float kl = std::stof(def,&sz);
+                      b.first.set_price(kl);
+                      std::getline(arch,def,'\n');
+                      b.first.set_image(def);
+                      aux.set_catalog_item(b);
+
+                      //std::cout << b.first.get_name() << " - " << b.first.get_image() << " - " << b.first.get_price();
+
+                  }
+
+                  if(arch.eof()) break;
+
+              }
+
+          }
+          rest_aux.menu = aux;
+          arch.close();
+
+          std::fstream arch_2;
+          std::string ask;
+          arch_2.open(ord, std::ios::in | std::ios::binary);
+          if(!(arch_2.get() == -1))
+          {
+              arch_2.seekg(0,arch_2.end);
+              while(1)
+              {
+                  arch_2.seekg(-53, std::ios::cur);
+                  std::cout << "Aqui--- " << arch_2.peek() << "/--/" << arch_2.tellg() << "----" << "\n";
+                  getchar();
+                  if(arch_2.peek() == '*'){
+                      std::getline(arch_2,ask,' ');
+                      ask = ask.substr(1);
+                      rest_aux.flag = atoi(ask.c_str());
+                      break;
+                  }
+              }
+          }
+
+
+          arch_2.close();
+
+          return rest_aux;
+
+
+      }
+      else
+      {
+         if(arch.peek() == '0') i++;
+
+         arch.seekg(111,std::ios::cur);
+      }
+  }
+
+  arch.close();
+
+  return rest_aux;
+
+}
 
 
 

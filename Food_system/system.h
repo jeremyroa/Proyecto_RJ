@@ -1,4 +1,4 @@
-#ifndef SYSTEM_H
+﻿#ifndef SYSTEM_H
 #define SYSTEM_H
 
 #include <restaurant.h>
@@ -38,6 +38,8 @@ class System
       std::list<Restaurant> show_recommend();
       Restaurant search_name_rest(std::string);
       Restaurant search_first();
+      Restaurant search_second();
+      Restaurant search_third();
       std::vector<Restaurant> show_types_rest(std::string);
       /// search_address();
       bool accept_order(Order);

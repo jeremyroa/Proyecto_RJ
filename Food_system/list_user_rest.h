@@ -18,10 +18,18 @@ public:
   System sys;
   std::vector<Restaurant> list_ur_rest;
   void set_opcion();
+  void set_opcion_2();
+  void set_opcion_3();
   std::vector<User_Menu*> u_menu;
 
 private slots:
   void on_commandLinkButton_clicked();
+
+  void on_commandLinkButton_2_clicked();
+
+  void on_commandLinkButton_3_clicked();
+
+  void on_commandLinkButton_5_clicked();
 
 private:
   Ui::List_user_rest *ui;

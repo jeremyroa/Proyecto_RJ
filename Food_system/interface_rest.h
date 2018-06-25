@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "system.h"
 #include "pedido_rest_set.h"
+#include "pedidos_rest.h"
 
 namespace Ui {
   class Interface_rest;
@@ -19,11 +20,14 @@ public:
   System sys;
   Pedido_rest_set *prs;
   void set_image(std::string);
+  Pedidos_rest *ped_rest;
 
 private slots:
   void on_pushButton_clicked();
 
   void on_commandLinkButton_clicked();
+
+  void on_commandLinkButton_2_clicked();
 
 private:
   Ui::Interface_rest *ui;

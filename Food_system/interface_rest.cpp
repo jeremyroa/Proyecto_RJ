@@ -17,7 +17,7 @@ Interface_rest::~Interface_rest()
 
 void Interface_rest::set_image(std::string img)
 {
-  qDebug() << QString::fromStdString(img);
+  //qDebug() << QString::fromStdString(img);
   QPixmap a(QString::fromStdString(img));
   this->ui->label_2->setPixmap(a);
   this->ui->label->setText(QString::fromStdString(this->sys.r.get_name()));
@@ -35,4 +35,12 @@ void Interface_rest::on_commandLinkButton_clicked()
     this->prs->sys = this->sys;
     this->prs->get_pedido();
     this->prs->show();
+}
+
+void Interface_rest::on_commandLinkButton_2_clicked()
+{
+    this->ped_rest = new Pedidos_rest;
+    this->ped_rest->sys = this->sys;
+    this->ped_rest->set_item();
+    this->ped_rest->show();
 }

@@ -109,3 +109,62 @@ void Pedido_rest_set::on_listWidget_clicked(const QModelIndex &index)
   this->ind = sd.toStdString();
   qDebug() << sd;
 }
+
+void Pedido_rest_set::on_pushButton_2_clicked()
+{
+  std::stringstream aux(this->ind);
+  std::string abc,defi,ghi,jkl;
+
+  std::getline(aux,abc,':');
+  std::getline(aux,defi,':');
+  std::getline(aux,ghi,':');
+  std::getline(aux,jkl,' ');
+
+  std::string def = "../database/clients/" + ghi;
+  std::string o = def + "/" + ghi + "_orders.txt";
+  std::fstream arch;
+
+  arch.open(o);
+
+  std::string aux_s;
+
+  while(!arch.eof())
+  {
+     std::getline(arch,aux_s,'\n');
+
+     if(aux_s == this->ind)
+     {
+        qDebug() << QString::fromStdString(aux_s);
+        arch.seekp(-53,std::ios::cur);
+        arch << aux_s.substr(0,8) << 'r' << aux_s.substr(9) << '\n';
+        break;
+     }
+  }
+
+  arch.close();
+
+  def = "../database/rest/" + this->sys.r.get_rif();
+  o = def + "/" + this->sys.r.get_rif() + "_orders_end.txt";
+  arch.open(o);
+
+  while(!arch.eof())
+  {
+     std::getline(arch,aux_s,'\n');
+
+     if(aux_s == this->ind)
+     {
+        qDebug() << QString::fromStdString(aux_s);
+        arch.seekp(-53,std::ios::cur);
+        arch << aux_s.substr(0,8) << 'e' << aux_s.substr(9) << '\n';
+        break;
+     }
+  }
+  arch.close();
+  this->ui->listWidget->clear();
+  this->get_pedido();
+}
+
+void Pedido_rest_set::on_pushButton_3_clicked()
+{
+    this->close();
+}

@@ -57,7 +57,7 @@ public:
 
         commandLinkButton_5 = new QCommandLinkButton(List_user_rest);
         commandLinkButton_5->setObjectName(QStringLiteral("commandLinkButton_5"));
-        commandLinkButton_5->setEnabled(false);
+        commandLinkButton_5->setEnabled(true);
         commandLinkButton_5->setMinimumSize(QSize(10, 10));
         commandLinkButton_5->setMaximumSize(QSize(30, 16777215));
         QIcon icon;

@@ -41,3 +41,13 @@ void Pedido_cl::set_item()
       this->ui->listWidget->addItem(QString::fromStdString(aux[i]));
   }
 }
+
+void Pedido_cl::on_pushButton_2_clicked()
+{
+    this->close();
+}
+
+void Pedido_cl::on_pushButton_clicked()
+{
+    this->on_pushButton_2_clicked();
+}

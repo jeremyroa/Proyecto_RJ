@@ -1,0 +1,2 @@
+-rgavr
+ dftb:34:/home/raiden/Pictures/BG_DystifyzerStream_6.png

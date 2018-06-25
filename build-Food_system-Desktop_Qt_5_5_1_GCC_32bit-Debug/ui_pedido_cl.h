@@ -90,7 +90,7 @@ public:
     {
         Pedido_cl->setWindowTitle(QApplication::translate("Pedido_cl", "Form", 0));
         pushButton->setText(QApplication::translate("Pedido_cl", "Confirmar", 0));
-        pushButton_2->setText(QApplication::translate("Pedido_cl", "Atras", 0));
+        pushButton_2->setText(QApplication::translate("Pedido_cl", "Salir", 0));
     } // retranslateUi
 
 };

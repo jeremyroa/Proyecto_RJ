@@ -123,6 +123,7 @@ public:
 
         commandLinkButton_3 = new QCommandLinkButton(Interface_rest);
         commandLinkButton_3->setObjectName(QStringLiteral("commandLinkButton_3"));
+        commandLinkButton_3->setEnabled(false);
         QIcon icon2;
         icon2.addFile(QStringLiteral("../img_system/Twemoji_270f.svg.png"), QSize(), QIcon::Normal, QIcon::Off);
         commandLinkButton_3->setIcon(icon2);

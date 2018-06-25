@@ -21,11 +21,13 @@ void Interface_cl::on_pushButton_clicked()
 
 void Interface_cl::on_commandLinkButton_3_clicked()
 {
-    this->lur = new List_user_rest;
-    this->lur->sys = this->sys;
-    this->lur->set_opcion();
-    this->lur->show();
-    close();
+  this->lur = new List_user_rest;
+  this->lur->sys = this->sys;
+  this->lur->set_opcion();
+  this->lur->set_opcion_2();
+  this->lur->set_opcion_3();
+  this->lur->show();
+
 }
 
 void Interface_cl::on_commandLinkButton_2_clicked()
