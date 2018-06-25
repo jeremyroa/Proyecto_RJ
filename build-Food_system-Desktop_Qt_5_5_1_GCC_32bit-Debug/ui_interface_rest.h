@@ -165,7 +165,7 @@ public:
         Interface_rest->setWindowTitle(QApplication::translate("Interface_rest", "Form", 0));
         label_2->setText(QString());
         label->setText(QApplication::translate("Interface_rest", "Restaurante", 0));
-        commandLinkButton->setText(QApplication::translate("Interface_rest", "       Aceptar Pedido", 0));
+        commandLinkButton->setText(QApplication::translate("Interface_rest", "       Cambiar Pedido", 0));
         commandLinkButton_2->setText(QApplication::translate("Interface_rest", "             Ver Pedidos", 0));
         commandLinkButton_3->setText(QApplication::translate("Interface_rest", "           Editar Menu", 0));
         pushButton->setText(QApplication::translate("Interface_rest", "Salir", 0));

@@ -25,4 +25,13 @@ void Interface_cl::on_commandLinkButton_3_clicked()
     this->lur->sys = this->sys;
     this->lur->set_opcion();
     this->lur->show();
+    close();
+}
+
+void Interface_cl::on_commandLinkButton_2_clicked()
+{
+    this->p_cl = new Pedido_cl;
+    this->p_cl->sys = this->sys;
+    this->p_cl->set_item();
+    this->p_cl->show();
 }

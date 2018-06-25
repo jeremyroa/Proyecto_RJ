@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "system.h"
 #include "list_user_rest.h"
+#include "pedido_cl.h"
 
 namespace Ui {
   class Interface_cl;
@@ -18,11 +19,13 @@ public:
   ~Interface_cl();
   System sys;
   List_user_rest *lur;
-
+  Pedido_cl *p_cl;
 private slots:
   void on_pushButton_clicked();
 
   void on_commandLinkButton_3_clicked();
+
+  void on_commandLinkButton_2_clicked();
 
 private:
   Ui::Interface_cl *ui;

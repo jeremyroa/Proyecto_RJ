@@ -6,6 +6,13 @@
 #include <functional>
 #include <cstdlib>
 #include <sys/stat.h>
+#include <iostream>
+#include <time.h>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <stdlib.h>
+
 class System
 {
     public:
@@ -23,7 +30,7 @@ class System
       ///Registro
       int add_user(Food_user);
       int login_user(std::string,std::string);
-      int add_order(Order);
+      int add_order(Order,int);
       int add_order_temporal(Order);
       ///Se llamara a las funciones confirm_order y confirm_tdc
       int pay(TDC,Order);

@@ -308,23 +308,48 @@ int System::login_user(std::string u, std::string p)
     return 1;
 }
 
-int System::add_order(Order ord)
+int System::add_order(Order ord,int aux)
 {
+  std::string def = "../database/clients/" + this->client.get_id();
+  std::string o = def + "/" + this->client.get_id() + "_orders.txt";
+  std::fstream arch;
+  arch.open(o,std::ios::app);
+  if(!arch.is_open()) return -1;
+  std::string as = this->r.get_rif();
+  as = as.substr(1);
+  int hash = aux;
+  ord.set_id(std::to_string(hash));
+  ord.set_status('p');
+  arch << "*" << std::left << std::setw(5) << aux << " :" << ord.get_status() << ":" << std::left << std::setw(8) << this->client.get_id() <<":" << std::left << std::setw(33) << this->r.get_rif() << "\n";
+  for(auto i : ord.get_service())
+  {
+      arch << "-" << std::left << std::setw(31) << i.first.get_name() << ":";
+      arch << std::left << std::setw(3) << i.second << ":";
+      arch << std::left << std::setw(15) << std::to_string(i.first.get_price()) << "\n";
+      /*arch << "-" << std::left << std::setw(20) i.first.get_name() << ":"
+         << std::left << std::setw(3) << i.second << ":"
+        << std::left << std::setw(15) << std::to_string(i.first.get_price()) << "\n";*/
+  }
+  arch << "+" <<std::left << std::setw(51) << ord.get_total() << '\n';
+
+  //qDebug() << (((10000*hash_float) - this->r.flag) / atoi(as.c_str()));
+  arch.close();
+  return 0;
 
 }
 
 int System::add_order_temporal(Order ord)
 {
    std::string def = "../database/rest/" + this->r.get_rif();
-   std::string o = def + "/" + this->r.get_rif() + "_orders_temporal.txt";
+   std::string o = def + "/" + this->r.get_rif() + "_orders_end.txt";
    std::fstream arch;
    arch.open(o,std::ios::app);
    if(!arch.is_open()) return -1;
    std::string as = this->r.get_rif();
    as = as.substr(1);
-   //int hash = ((atoi(this->client.get_id().c_str()) * atoi(as.c_str())) + this->r.flag) % 10000;
-   //float hash_float = ((atoi(this->client.get_id().c_str()) * atoi(as.c_str())) + this->r.flag) % 10000;
-   ord.set_id(std::to_string( this->r.flag));
+   srand(time(NULL));
+   int hash = rand() % 99999;
+   ord.set_id(std::to_string(hash));
    qDebug() << atoi(this->client.get_id().c_str()) << atoi(as.c_str());
    ord.set_status('p');
    arch << "*" << std::left << std::setw(5) << ord.get_id() << " :" << ord.get_status() << ":" << std::left << std::setw(8) << this->client.get_id() <<":" << std::left << std::setw(33) << this->r.get_rif() << "\n";
@@ -343,6 +368,7 @@ int System::add_order_temporal(Order ord)
 
    this->r.flag++;
    arch.close();
+   this->add_order(ord,hash);
    return 0;
 }
 

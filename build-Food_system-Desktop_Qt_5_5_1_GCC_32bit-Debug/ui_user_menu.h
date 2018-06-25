@@ -48,7 +48,6 @@ public:
     QSpacerItem *horizontalSpacer;
     QVBoxLayout *verticalLayout_2;
     QPushButton *pushButton_2;
-    QPushButton *pushButton;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_2;
     QPushButton *pushButton_3;
@@ -157,13 +156,6 @@ public:
 
         verticalLayout_2->addWidget(pushButton_2);
 
-        pushButton = new QPushButton(User_Menu);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setMinimumSize(QSize(100, 25));
-        pushButton->setMaximumSize(QSize(100, 16777215));
-
-        verticalLayout_2->addWidget(pushButton);
-
 
         horizontalLayout_5->addLayout(verticalLayout_2);
 
@@ -213,7 +205,6 @@ public:
         pushButton_4->setText(QApplication::translate("User_Menu", "Actualizar", 0));
         label_5->setText(QApplication::translate("User_Menu", "Cantidad", 0));
         pushButton_2->setText(QApplication::translate("User_Menu", "Agregar", 0));
-        pushButton->setText(QApplication::translate("User_Menu", "Eliminar", 0));
         pushButton_3->setText(QString());
     } // retranslateUi
 

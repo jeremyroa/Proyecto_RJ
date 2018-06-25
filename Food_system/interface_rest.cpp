@@ -28,3 +28,11 @@ void Interface_rest::on_pushButton_clicked()
 {
     close();
 }
+
+void Interface_rest::on_commandLinkButton_clicked()
+{
+    this->prs = new Pedido_rest_set;
+    this->prs->sys = this->sys;
+    this->prs->get_pedido();
+    this->prs->show();
+}

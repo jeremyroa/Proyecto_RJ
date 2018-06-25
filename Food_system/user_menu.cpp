@@ -89,4 +89,5 @@ void User_Menu::on_pushButton_3_clicked()
     this->Cmenu->ord = this->ord;
     this->Cmenu->set_item();
     this->Cmenu->show();
+    close();
 }

@@ -38,7 +38,7 @@ void Confirm_menu_user::on_pushButton_clicked()
 {
   QString reply;
 
-  Login *log = new Login;
+  Interface_cl *log = new Interface_cl;
 
   reply = QMessageBox::question(this,"Pago De la Compra","Desea Confirmar el pedido","Si","No");
 
@@ -47,8 +47,14 @@ void Confirm_menu_user::on_pushButton_clicked()
      if(this->sys.add_order_temporal(this->ord) == 0)
      {
         log->sys = this->sys;
+        log->sys.login_user(this->sys.client.get_id(),this->sys.client.get_password());
         log->show();
         this->close();
      }else QMessageBox::warning(this,"Error Pedido","Error al procesar el pedido");
   }
+}
+
+void Confirm_menu_user::on_listWidget_clicked(const QModelIndex &index)
+{
+
 }

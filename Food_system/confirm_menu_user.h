@@ -18,10 +18,13 @@ public:
   ~Confirm_menu_user();
   Order ord;
   System sys;
+  std::string ind;
 
   void set_item();
 private slots:
   void on_pushButton_clicked();
+
+  void on_listWidget_clicked(const QModelIndex &index);
 
 private:
   Ui::Confirm_menu_user *ui;

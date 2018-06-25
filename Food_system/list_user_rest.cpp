@@ -34,6 +34,6 @@ void List_user_rest::on_commandLinkButton_clicked()
    this->u_menu[0]->sys = this->sys;
    this->u_menu[0]->set_item(this->list_ur_rest[0]);
    this->u_menu[0]->show();
-
+   close();
 
 }

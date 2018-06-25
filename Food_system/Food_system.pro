@@ -34,7 +34,10 @@ SOURCES += main.cpp\
     list_user_rest.cpp \
     user_menu.cpp \
     confirm_menu_user.cpp \
-    register_client_tdc.cpp
+    register_client_tdc.cpp \
+    pedido_cl.cpp \
+    pedido_rest_set.cpp \
+    pedidos_rest.cpp
 
 HEADERS  += login.h \
     credit_card.h \
@@ -56,7 +59,10 @@ HEADERS  += login.h \
     list_user_rest.h \
     user_menu.h \
     confirm_menu_user.h \
-    register_client_tdc.h
+    register_client_tdc.h \
+    pedido_cl.h \
+    pedido_rest_set.h \
+    pedidos_rest.h
 
 FORMS    += login.ui \
     register_client.ui \
@@ -69,4 +75,7 @@ FORMS    += login.ui \
     list_user_rest.ui \
     user_menu.ui \
     confirm_menu_user.ui \
-    register_client_tdc.ui
+    register_client_tdc.ui \
+    pedido_cl.ui \
+    pedido_rest_set.ui \
+    pedidos_rest.ui
