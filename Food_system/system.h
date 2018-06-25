@@ -30,6 +30,7 @@ class System
       std::list<Order> show_orders();
       std::list<Restaurant> show_recommend();
       Restaurant search_name_rest(std::string);
+      Restaurant search_first();
       std::vector<Restaurant> show_types_rest(std::string);
       /// search_address();
       bool accept_order(Order);

@@ -2,6 +2,7 @@
 #define USER_MENU_H
 
 #include <QWidget>
+#include "system.h"
 
 namespace Ui {
   class User_Menu;
@@ -13,6 +14,7 @@ class User_Menu : public QWidget
 
 public:
   explicit User_Menu(QWidget *parent = 0);
+  void set_item(Restaurant);
   ~User_Menu();
 
 private:

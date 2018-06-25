@@ -503,6 +503,9 @@
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
           <widget class="QCommandLinkButton" name="commandLinkButton">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="text">
             <string>          Buscar Restaurant</string>
            </property>

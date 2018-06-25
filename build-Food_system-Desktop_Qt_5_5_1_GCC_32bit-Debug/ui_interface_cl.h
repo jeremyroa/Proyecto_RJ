@@ -154,6 +154,7 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         commandLinkButton = new QCommandLinkButton(Interface_cl);
         commandLinkButton->setObjectName(QStringLiteral("commandLinkButton"));
+        commandLinkButton->setEnabled(false);
         QIcon icon;
         icon.addFile(QStringLiteral("../img_system/Door-Delivery-Food-55-In-Excellent-Home-Decoration-For-Interior-Design-Styles-with-Door-Delivery-Food.png"), QSize(), QIcon::Normal, QIcon::Off);
         commandLinkButton->setIcon(icon);
