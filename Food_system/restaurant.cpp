@@ -16,6 +16,7 @@ Restaurant::Restaurant()
     this->menu = Menu();
     this->orders.clear();
     this->image.clear();
+    this->flag = 0;
 }
 
 Restaurant::Restaurant(const Restaurant &Rest)

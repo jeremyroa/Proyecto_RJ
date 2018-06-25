@@ -39,7 +39,7 @@ float Order::get_total()
 
 int Order::set_id(std::string id)
 {
-    if(id.size() == 15)
+    if(id.size() <= 5)
     {
         this->ID = id;
         return 0;
